@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>QazCreators - Блогеры</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-purple: #8B5CF6;
+            --primary-teal: #2DD4BF;
+            --primary-pink: #EC4899;
+            --dark-bg: #0F172A;
+            --card-bg: #1E293B;
+            --input-bg: #334155;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: #CBD5E1;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 20px 5px rgba(139, 92, 246, 0.5);
+        }
+        .card-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+        .custom-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-purple);
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .range-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-purple);
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        /* Стили для иконки-стрелки в сворачиваемом блоке */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details > summary .chevron { transition: transform 0.2s ease-in-out; }
+        details[open] > summary .chevron { transform: rotate(90deg); }
+    </style>
+</head>
+<body class="text-gray-300">
+<div class="min-h-screen flex flex-col">
+    <header class="py-4 px-4 sm:px-6 lg:px-8 bg-slate-900/70 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-slate-700/50">
+        <nav class="flex items-center justify-between max-w-screen-2xl mx-auto relative">
+            <div class="flex items-center">
+                <span class="material-icons-outlined text-[var(--primary-purple)] mr-2 text-3xl">hub</span>
+                <h1 class="text-2xl font-bold text-white">QazCreators</h1>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors" href="#">Торговая площадка</a>
+                <a class="text-white font-semibold" href="#">Блогеры</a>
+                <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors" href="#">Для брендов</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-2">
+                <a class="text-gray-300 hover:bg-slate-700/50 font-medium transition-colors py-2 px-4 rounded-lg" href="#">Войти</a>
+                <a class="bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ease-in-out transform hover:scale-105 btn-glow flex items-center space-x-2" href="#">
+                    <span>Бесплатная регистрация</span>
+                    <span class="material-icons-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none p-2"><span class="material-icons-outlined">menu</span></button>
+            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-slate-900 shadow-lg border-t border-slate-700/50">
+                <a href="#" class="block py-3 px-4 text-gray-300 hover:bg-slate-700/50 transition-colors">Торговая площадка</a>
+                <a href="#" class="block py-3 px-4 text-white font-semibold bg-slate-800 transition-colors">Блогеры</a>
+                <a href="#" class="block py-3 px-4 text-gray-300 hover:bg-slate-700/50 transition-colors">Для брендов</a>
+                <div class="border-t border-slate-700 my-2"></div>
+                <div class="p-4 flex flex-col space-y-3">
+                    <a class="text-gray-300 hover:bg-slate-700/50 text-center font-medium transition-colors py-2 px-4 rounded-lg" href="#">Войти</a>
+                    <a class="bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ease-in-out flex items-center justify-center space-x-2" href="#">
+                        <span>Бесплатная регистрация</span>
+                        <span class="material-icons-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="flex-grow py-8 sm:py-12">
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight">Найдите идеального блогера</h1>
+                <p class="text-lg text-gray-400 mt-2 max-w-2xl mx-auto">Свяжитесь с влиятельными блогерами и авторами, чтобы усилить посыл вашего бренда.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <aside class="lg:col-span-1">
+                    <details class="bg-[var(--card-bg)] rounded-2xl shadow-lg border border-slate-700/50 lg:sticky lg:top-28" open>
+                        <summary class="p-6 cursor-pointer flex justify-between items-center">
+                            <h2 class="text-xl font-bold text-white">Фильтры</h2>
+                            <span class="material-icons-outlined text-gray-400 chevron lg:hidden">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-6 lg:pt-0 space-y-6">
+                            <div class="mb-6">
+                                <label class="sr-only" for="search-blogger">Поиск блогера</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <span class="material-icons-outlined text-gray-400">search</span>
+                                    </div>
+                                    <input class="w-full bg-[var(--input-bg)] border-slate-600 rounded-lg pl-10 pr-4 py-2.5 text-white placeholder-gray-400 focus:ring-2 focus:ring-[var(--primary-purple)] focus:border-[var(--primary-purple)]" id="search-blogger" name="search" placeholder="Имя или ниша..." type="text"/>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white mb-3">Категория</h3>
+                                <div class="space-y-2">
+                                    <div class="flex items-center"><input checked="" class="h-4 w-4 text-[var(--primary-purple)] bg-[var(--input-bg)] border-slate-600 focus:ring-[var(--primary-purple)]" id="cat-all" name="category" type="radio"/><label class="ml-3 text-sm text-gray-300" for="cat-all">Все</label></div>
+                                    <div class="flex items-center"><input class="h-4 w-4 text-[var(--primary-purple)] bg-[var(--input-bg)] border-slate-600 focus:ring-[var(--primary-purple)]" id="cat-lifestyle" name="category" type="radio"/><label class="ml-3 text-sm text-gray-300" for="cat-lifestyle">Лайфстайл</label></div>
+                                    <div class="flex items-center"><input class="h-4 w-4 text-[var(--primary-purple)] bg-[var(--input-bg)] border-slate-600 focus:ring-[var(--primary-purple)]" id="cat-tech" name="category" type="radio"/><label class="ml-3 text-sm text-gray-300" for="cat-tech">Технологии</label></div>
+                                    <div class="flex items-center"><input class="h-4 w-4 text-[var(--primary-purple)] bg-[var(--input-bg)] border-slate-600 focus:ring-[var(--primary-purple)]" id="cat-fashion" name="category" type="radio"/><label class="ml-3 text-sm text-gray-300" for="cat-fashion">Мода</label></div>
+                                    <div class="flex items-center"><input class="h-4 w-4 text-[var(--primary-purple)] bg-[var(--input-bg)] border-slate-600 focus:ring-[var(--primary-purple)]" id="cat-food" name="category" type="radio"/><label class="ml-3 text-sm text-gray-300" for="cat-food">Еда</label></div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="text-lg font-semibold text-white mb-3 block" for="rating-range">Рейтинг</label>
+                                <input class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer range-slider" id="rating-range" max="5" min="0" step="0.1" type="range" value="4"/>
+                                <div class="flex justify-between text-xs text-gray-400 mt-1"><span>Любой</span><span>5.0</span></div>
+                            </div>
+                            <div>
+                                <label class="text-lg font-semibold text-white mb-3 block" for="followers-range">Количество подписчиков</label>
+                                <input class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer range-slider" id="followers-range" max="1000000" min="0" step="1000" type="range" value="50000"/>
+                                <div class="flex justify-between text-xs text-gray-400 mt-1"><span>0</span><span>1M+</span></div>
+                            </div>
+                            <div>
+                                <label class="text-lg font-semibold text-white mb-3 block" for="engagement-range">Сред. вовлеченность</label>
+                                <input class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer range-slider" id="engagement-range" max="10" min="0" step="0.1" type="range" value="2.5"/>
+                                <div class="flex justify-between text-xs text-gray-400 mt-1"><span>0%</span><span>10%+</span></div>
+                            </div>
+                            <button class="w-full bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-200 ease-in-out transform hover:scale-105 btn-glow flex items-center justify-center space-x-2 mt-8">
+                                <span class="material-icons-outlined text-base">filter_list</span>
+                                <span>Применить фильтры</span>
+                            </button>
+                        </div>
+                    </details>
+                </aside>
+                <div class="lg:col-span-3">
+                    <div class="flex flex-col md:flex-row gap-4 md:items-center justify-between mb-6">
+                        <p class="text-gray-400 text-sm">Показано <span class="text-white font-semibold">12</span> из <span class="text-white font-semibold">2,456</span> блогеров</p>
+                        <div class="relative w-full md:w-auto">
+                            <select class="custom-select appearance-none w-full bg-[var(--input-bg)] border-slate-600 rounded-lg pl-4 pr-10 py-2 text-white focus:ring-2 focus:ring-[var(--primary-purple)] focus:border-[var(--primary-purple)]" id="sort" name="sort">
+                                <option>Сортировать: Популярные</option>
+                                <option>Сортировать: Рейтинг</option>
+                                <option>Сортировать: Подписчики</option>
+                                <option>Сортировать: Новые</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                        <div class="bg-[var(--card-bg)] rounded-2xl shadow-lg border border-slate-700/50 overflow-hidden group transition-all duration-300 ease-in-out card-lift text-center p-6 flex flex-col items-center">
+                            <img alt="Алина Рай" class="w-24 h-24 rounded-full object-cover border-4 border-slate-600 group-hover:border-[var(--primary-purple)] transition-colors" src="https://lh3.googleusercontent.com/a/ACg8ocL8K8vX-sH-JUQy4t3-2X-vD8uL5fG6-xJjE5B4z9wI=s96-c-rg-br100"/>
+                            <h3 class="font-bold text-xl text-white mt-4">Алина Рай</h3>
+                            <p class="text-sm text-[var(--primary-teal)] font-medium">@alinarai</p>
+                            <p class="text-gray-400 text-sm mt-2 h-12 flex-grow">Энтузиаст лайфстайла и путешествий, исследующий мир.</p>
+                            <div class="flex items-center justify-around mt-4 text-sm w-full">
+                                <div class="text-center"><p class="font-bold text-white">5.2M</p><p class="text-gray-400 text-xs">Подписчики</p></div>
+                                <div class="text-center"><div class="flex items-center justify-center text-amber-400"><span class="font-bold text-white">4.9</span><span class="material-icons-outlined text-sm ml-0.5">star</span></div><p class="text-gray-400 text-xs">Рейтинг</p></div>
+                                <div class="text-center"><p class="font-bold text-white">3.1%</p><p class="text-gray-400 text-xs">Коэф. вовл.</p></div>
+                            </div>
+                            <a class="mt-6 w-full bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ease-in-out transform hover:scale-105 btn-glow" href="#">Смотреть профиль</a>
+                        </div>
+                        <div class="bg-[var(--card-bg)] rounded-2xl shadow-lg border border-slate-700/50 overflow-hidden group transition-all duration-300 ease-in-out card-lift text-center p-6 flex flex-col items-center">
+                            <img alt="Тимур Кодинг" class="w-24 h-24 rounded-full object-cover border-4 border-slate-600 group-hover:border-[var(--primary-purple)] transition-colors" src="https://lh3.googleusercontent.com/a/ACg8ocKj9Y-gD3q9-vD_E8rF-P0wG-tH-gJ6-sJjE5B4z9wI=s96-c-rg-br100"/>
+                            <h3 class="font-bold text-xl text-white mt-4">Тимур Кодинг</h3>
+                            <p class="text-sm text-[var(--primary-teal)] font-medium">@timurcodes</p>
+                            <p class="text-gray-400 text-sm mt-2 h-12 flex-grow">Разработчик ПО, делающий технологии доступными для всех.</p>
+                            <div class="flex items-center justify-around mt-4 text-sm w-full">
+                                <div class="text-center"><p class="font-bold text-white">850K</p><p class="text-gray-400 text-xs">Подписчики</p></div>
+                                <div class="text-center"><div class="flex items-center justify-center text-amber-400"><span class="font-bold text-white">5.0</span><span class="material-icons-outlined text-sm ml-0.5">star</span></div><p class="text-gray-400 text-xs">Рейтинг</p></div>
+                                <div class="text-center"><p class="font-bold text-white">7.8%</p><p class="text-gray-400 text-xs">Коэф. вовл.</p></div>
+                            </div>
+                            <a class="mt-6 w-full bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ease-in-out transform hover:scale-105 btn-glow" href="#">Смотреть профиль</a>
+                        </div>
+                        <div class="bg-[var(--card-bg)] rounded-2xl shadow-lg border border-slate-700/50 overflow-hidden group transition-all duration-300 ease-in-out card-lift text-center p-6 flex flex-col items-center">
+                            <img alt="Модница Айя" class="w-24 h-24 rounded-full object-cover border-4 border-slate-600 group-hover:border-[var(--primary-purple)] transition-colors" src="https://lh3.googleusercontent.com/a/ACg8ocI8K8vX-sH-JUQy4t3-2X-vD8uL5fG6-xJjE5B4z9wI=s96-c-rg-br100"/>
+                            <h3 class="font-bold text-xl text-white mt-4">Модница Айя</h3>
+                            <p class="text-sm text-[var(--primary-teal)] font-medium">@stylebyaiya</p>
+                            <p class="text-gray-400 text-sm mt-2 h-12 flex-grow">Создает стильные образы с историей. Базируется в Алматы.</p>
+                            <div class="flex items-center justify-around mt-4 text-sm w-full">
+                                <div class="text-center"><p class="font-bold text-white">1.2M</p><p class="text-gray-400 text-xs">Подписчики</p></div>
+                                <div class="text-center"><div class="flex items-center justify-center text-amber-400"><span class="font-bold text-white">4.8</span><span class="material-icons-outlined text-sm ml-0.5">star</span></div><p class="text-gray-400 text-xs">Рейтинг</p></div>
+                                <div class="text-center"><p class="font-bold text-white">4.5%</p><p class="text-gray-400 text-xs">Коэф. вовл.</p></div>
+                            </div>
+                            <a class="mt-6 w-full bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ease-in-out transform hover:scale-105 btn-glow" href="#">Смотреть профиль</a>
+                        </div>
+                    </div>
+                    <nav aria-label="Пагинация" class="flex items-center justify-center mt-12">
+                        <a class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-slate-700 bg-[var(--card-bg)] text-sm font-medium text-gray-400 hover:bg-slate-700" href="#"><span class="sr-only">Назад</span><span class="material-icons-outlined text-base">chevron_left</span></a>
+                        <a aria-current="page" class="z-10 bg-[var(--primary-purple)] text-white relative inline-flex items-center px-4 py-2 border border-[var(--primary-purple)] text-sm font-medium" href="#"> 1 </a>
+                        <a class="bg-[var(--card-bg)] text-gray-400 hover:bg-slate-700 relative inline-flex items-center px-4 py-2 border border-slate-700 text-sm font-medium" href="#"> 2 </a>
+                        <a class="bg-[var(--card-bg)] text-gray-400 hover:bg-slate-700 hidden md:inline-flex relative items-center px-4 py-2 border border-slate-700 text-sm font-medium" href="#"> 3 </a>
+                        <span class="relative inline-flex items-center px-4 py-2 border border-slate-700 bg-[var(--card-bg)] text-sm font-medium text-gray-500"> ... </span>
+                        <a class="bg-[var(--card-bg)] text-gray-400 hover:bg-slate-700 hidden md:inline-flex relative items-center px-4 py-2 border border-slate-700 text-sm font-medium" href="#"> 205 </a>
+                        <a class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-slate-700 bg-[var(--card-bg)] text-sm font-medium text-gray-400 hover:bg-slate-700" href="#"><span class="sr-only">Вперед</span><span class="material-icons-outlined text-base">chevron_right</span></a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-slate-900/80 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-700/50 mt-auto">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center text-gray-500 text-sm">
+                © <script>document.write(new Date().getFullYear())</script> QazCreators. Сделано с ❤️ в Казахстане.
+            </div>
+        </div>
+    </footer>
+</div>
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Закрываем панель фильтров по умолчанию на мобильных
+    if (window.innerWidth < 1024) {
+        const details = document.querySelector('aside details');
+        if(details) {
+            details.removeAttribute('open');
+        }
+    }
+</script>
+</body></html>

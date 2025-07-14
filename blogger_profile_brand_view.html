@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>QazCreators - Blogger Profile</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" referrerpolicy="no-referrer" rel="stylesheet"/>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-purple: #8B5CF6;
+            --primary-teal: #2DD4BF;
+            --dark-bg: #0F172A;
+            --card-bg: #1E293B;
+            --input-bg: #334155;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: #CBD5E1;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 20px 5px rgba(139, 92, 246, 0.5);
+        }
+        .tab-active {
+            color: var(--primary-purple);
+            border-bottom-color: var(--primary-purple);
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-down {
+            animation: fadeInDown 0.6s ease-out forwards;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .header-element {
+            opacity: 0;
+            animation: fadeInDown 0.5s ease-out forwards;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--card-bg);
+            min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 0.5rem;
+            border: 1px solid #475569;
+            animation: fadeInDown 0.3s ease-out;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-item {
+            @apply flex items-center px-4 py-3 text-sm text-gray-300 hover:bg-slate-700/50;
+        }
+        .dropdown-divider {
+            @apply border-t border-slate-700;
+        }
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="text-gray-300">
+<div class="min-h-screen flex flex-col">
+    <header class="py-4 px-4 sm:px-6 lg:px-8 bg-slate-900/70 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-slate-700/50">
+        <nav class="flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center header-element" style="animation-delay: 0.1s;">
+                <span class="material-icons-outlined text-[var(--primary-purple)] mr-2 text-3xl transform transition-transform duration-500 hover:rotate-12">hub</span>
+                <h1 class="text-2xl font-bold text-white">QazCreators</h1>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors header-element" href="#" style="animation-delay: 0.2s;">Dashboard</a>
+                <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors header-element" href="#" style="animation-delay: 0.3s;">Campaigns</a>
+                <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors header-element" href="#" style="animation-delay: 0.4s;">Products</a>
+                <a class="text-white font-semibold header-element" href="#" style="animation-delay: 0.5s;">Creators</a>
+            </div>
+            <div class="flex items-center space-x-4 header-element" style="animation-delay: 0.6s;">
+                <div class="dropdown">
+                    <button class="relative p-2 text-gray-400 hover:text-white transition-transform duration-300 hover:scale-110">
+                        <span class="material-icons-outlined">notifications</span>
+                        <span class="absolute top-1 right-1 h-2 w-2 rounded-full bg-pink-500 animate-pulse"></span>
+                    </button>
+                    <div class="dropdown-content mt-3">
+                        <div class="px-4 py-2 font-semibold text-white text-sm">Notifications</div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                            <span class="material-icons-outlined text-green-400 mr-3">campaign</span>
+                            <div>
+                                <p class="font-medium">New campaign launched</p>
+                                <p class="text-xs text-gray-400">"Summer Vibes" is now live.</p>
+                            </div>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <span class="material-icons-outlined text-teal-400 mr-3">person_add</span>
+                            <div>
+                                <p class="font-medium">Creator applied</p>
+                                <p class="text-xs text-gray-400">@StyleByJane applied to your campaign.</p>
+                            </div>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <span class="material-icons-outlined text-yellow-400 mr-3">warning</span>
+                            <div>
+                                <p class="font-medium">Payment due soon</p>
+                                <p class="text-xs text-gray-400">Invoice #12345 is due tomorrow.</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="block text-center py-2 text-sm text-[var(--primary-purple)] hover:bg-slate-700/50 rounded-b-lg" href="#">View all notifications</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="flex items-center space-x-2 group">
+                        <img alt="Brand Logo" class="w-8 h-8 rounded-full transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo0soxoFA3M1vjtzp65hiqVj1b5gMNPZlg7_OC-lfkfn2nbs0OqmPLhubLJ8ui9fKlxoyBO3cltZkOP-lyYXk6kY_ggdt2PF_IYCeKFYHWA0MKhQlSFOm_MDrG-S53HdP8SKxImoIpeEhCGVHHoV5oRuH4g1vbmixJtTSOw0RokGaROAfHClM8Me8iog0L8KqH9kFr-lvPXnPBhUIagkDQ6bBx16kzKnoeoZP9VPwM_vSVcTnI9zDNj_OmU0ynHz3aVJ5zt6vH3k9v"/>
+                        <span class="text-white font-medium text-sm hidden sm:inline">Momentum Athletics</span>
+                        <span class="material-icons-outlined text-gray-400 hidden sm:inline transition-transform duration-300 group-hover:rotate-180">expand_more</span>
+                    </button>
+                    <div class="dropdown-content mt-3">
+                        <a class="dropdown-item" href="#">
+                            <span class="material-icons-outlined mr-3">account_circle</span> View Profile
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <span class="material-icons-outlined mr-3">settings</span> Settings
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-red-400 hover:text-red-300" href="#">
+                            <span class="material-icons-outlined mr-3">logout</span> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="flex-grow py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-[var(--card-bg)] rounded-2xl shadow-lg border border-slate-700/50 p-8 animate-fade-in-down">
+                <div class="flex flex-col md:flex-row items-start md:space-x-8">
+                    <div class="flex-shrink-0 mb-6 md:mb-0 text-center md:text-left">
+                        <div class="relative inline-block">
+                            <img alt="Profile picture of Asel Ademi" class="h-36 w-36 rounded-full ring-4 ring-offset-4 ring-offset-[var(--card-bg)] ring-[var(--primary-purple)] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLiALOixo5rBvDv6WUTEyu725d1Tqy_5RR7iUPPRrKbUrNe5ox_NJmQCLlbI8xycJ944UFWp78hBTsqBcAOeyRfiH0b8wwnFZqV0cGBxtm5yn2Io_hzKsJjzIIGDP1IdyQePiOxOLhXy9HPNvejOPDx5AMFaafvQikRhWee-w1Ttcsm3t0wRFYfCUXHOXaIj5EdB5epHfY-UNqRO1UWXXhZqweArXgs5LJbiGLyZgW-wdLbopZDp_gD3X2K9KCwVwVSSa5ufV4HnLb"/>
+                            <span class="absolute bottom-2 right-2 bg-green-500 rounded-full h-5 w-5 border-2 border-[var(--card-bg)]" title="Available for collaborations"></span>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-4">
+                            <h1 class="text-3xl font-extrabold text-white">Asel Ademi</h1>
+                            <span class="bg-teal-400/20 text-teal-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">Pro Blogger</span>
+                        </div>
+                        <p class="text-gray-400 mt-2 max-w-2xl">Travel enthusiast &amp; photographer sharing stories from around the globe. Passionate about sustainable travel and cultural immersion. Let's explore together! 🌍✨</p>
+                        <div class="flex items-center mt-4 text-sm">
+                            <div class="flex items-center text-yellow-400">
+                                <span class="font-bold text-base mr-1">4.9</span>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-400 ml-2">(128 reviews)</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <a class="flex items-center justify-center bg-slate-700/50 hover:bg-slate-600/80 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 ease-in-out transform hover:scale-105" href="#">
+                                <i class="fab fa-instagram mr-2"></i> Instagram
+                            </a>
+                            <a class="flex items-center justify-center bg-slate-700/50 hover:bg-slate-600/80 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 ease-in-out transform hover:scale-105" href="#">
+                                <i class="fab fa-youtube mr-2"></i> YouTube
+                            </a>
+                            <a class="flex items-center justify-center bg-slate-700/50 hover:bg-slate-600/80 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 ease-in-out transform hover:scale-105" href="#">
+                                <i class="fab fa-tiktok mr-2"></i> TikTok
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 flex flex-col items-stretch md:items-end space-y-3 mt-6 md:mt-0 w-full md:w-auto">
+                        <button class="w-full bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-semibold py-2 px-6 rounded-lg transition duration-200 ease-in-out transform hover:scale-105 btn-glow flex items-center justify-center space-x-2">
+                            <span class="material-icons-outlined text-sm">email</span>
+                            <span>Contact</span>
+                        </button>
+                        <button class="w-full text-gray-300 hover:bg-slate-700/50 font-medium transition-colors py-2 px-6 rounded-lg border border-slate-600 flex items-center justify-center space-x-2">
+                            <span class="material-icons-outlined text-sm">bookmark_border</span>
+                            <span>Save</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 animate-fade-in-up" style="animation-delay: 0.2s;" x-data="{ tab: 'portfolio' }">
+                <div class="border-b border-slate-700/50 mb-8">
+                    <nav aria-label="Tabs" class="-mb-px flex space-x-8">
+                        <button :class="{ 'tab-active': tab === 'portfolio', 'border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500': tab !== 'portfolio' }" @click="tab = 'portfolio'" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors focus:outline-none">Portfolio</button>
+                        <button :class="{ 'tab-active': tab === 'about', 'border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500': tab !== 'about' }" @click="tab = 'about'" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors focus:outline-none">About</button>
+                        <button :class="{ 'tab-active': tab === 'reviews', 'border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500': tab !== 'reviews' }" @click="tab = 'reviews'" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors focus:outline-none">Reviews</button>
+                    </nav>
+                </div>
+                <div x-cloak="" x-show="tab === 'portfolio'">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-[var(--card-bg)] rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-slate-700/50">
+                            <div class="relative">
+                                <img alt="Bali travel post" class="h-64 w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNBnbNVO6IwS_QRFkGXCt9yB6_vS6byDaDml2_g4xTCEZGOOoxcgaoXjwfoD2P8LNFqyWlxflmMKhWyT_OfOkod3HdjWeHQmdxAdyZPYmnRwPaIO5PujGWEoXdtgbgbQ-ceOQfu4Z82OBnM46lSJHvZoiz1XjSDk4koVEj9e-uZakbqujbnhP_DFt3DYnr3AjY--wfKAEIgTKX7X8uavL0W2Gx69DQvG2JWl-NCbXjgqIH-ilrI9o1J_zAaUoor2B4Q12ax7S-KfIj"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 p-5">
+                                    <h3 class="text-xl font-bold text-white">Adventures in Bali's Rice Paddies</h3>
+                                    <p class="text-gray-300 text-sm mt-1">Sponsored by <span class="font-semibold text-[var(--primary-teal)]">Wanderlust Gear</span></p>
+                                </div>
+                                <div class="absolute top-4 right-4 bg-black/50 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center">
+                                    <i class="fab fa-instagram mr-2"></i> Post
+                                </div>
+                            </div>
+                            <div class="p-5 bg-slate-800/50 flex justify-between items-center text-sm text-gray-400">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex items-center"><span class="material-icons-outlined text-base mr-1.5 text-red-400">favorite</span> 235k</div>
+                                    <div class="flex items-center"><span class="material-icons-outlined text-base mr-1.5">chat_bubble_outline</span> 1.2k</div>
+                                </div>
+                                <span class="text-xs">May 15, 2024</span>
+                            </div>
+                        </div>
+                        <div class="bg-[var(--card-bg)] rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-slate-700/50">
+                            <div class="relative">
+                                <img alt="Italian food guide video" class="h-64 w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg80q2ASklpFBechIJyuuTh9MfKOHbfEy-MtZ8WZHNjzefiVkALjK-qhsIM4f4ieecJwavOeRpg1KYp-sHKQXnfThZ_9rYhhR8_JDVxUB75yaYaJ0la99K9E2a6sOMDX0CunAzzjIApWpiOEV38Ht8dKlKN8D-UfPrtxg1QsCcKts7PRaGcVw2w4QovjYXZP-gHqa1svhHNOkp4eoIIRaP_TR48c62-RnNO469irspLcrTc8Djuj6VsrlgmsrfPxW6NH-HpYkDLmwT"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-center justify-center">
+                                    <span class="material-icons-outlined text-white text-6xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-110">play_circle</span>
+                                </div>
+                                <div class="absolute bottom-0 left-0 p-5">
+                                    <h3 class="text-xl font-bold text-white">Ultimate Food Guide to Rome</h3>
+                                    <p class="text-gray-300 text-sm mt-1">Collaboration with <span class="font-semibold text-[var(--primary-teal)]">TasteIt</span></p>
+                                </div>
+                                <div class="absolute top-4 right-4 bg-black/50 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center">
+                                    <i class="fab fa-youtube mr-2"></i> Video
+                                </div>
+                            </div>
+                            <div class="p-5 bg-slate-800/50 flex justify-between items-center text-sm text-gray-400">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex items-center"><span class="material-icons-outlined text-base mr-1.5">visibility</span> 1.5M</div>
+                                    <div class="flex items-center"><span class="material-icons-outlined text-base mr-1.5">thumb_up_off_alt</span> 85k</div>
+                                </div>
+                                <span class="text-xs">Apr 28, 2024</span>
+                            </div>
+                        </div>
+                        <div class="bg-[var(--card-bg)] rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-slate-700/50">
+                            <div class="relative">
+                                <img alt="Skincare routine post" class="h-64 w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZCyDcV280LUJv5I4_cHJT1dBfbmsj6O6iGYpIcV5ZISktVV1pCnmfBpYSwOSz_H0M2BbHMBBb4Xl3bT4dKwnLHcP5JEzaLgG3jrCIyw8DGSz9A1zi8kj1PrY15EKizvpATGF40KdUk-InTllwulM4gDdMnJfHJEKk5U4U6YA6Ck_k6HXspdtELcvDTpZoTSC8Nfgh_lKsALdZr0MZNmh_RthdyzOGYwv9DeA2iV8Ze7rTTafNi-dwQj3WWfiG92AFcc8Jba-tLmKh"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 p-5">
+                                    <h3 class="text-xl font-bold text-white">My Morning Skincare Routine</h3>
+                                    <p class="text-gray-300 text-sm mt-1">Paid partnership with <span class="font-semibold text-[var(--primary-teal)]">GlowUp Cosmetics</span></p>
+                                </div>
+                                <div class="absolute top-4 right-4 bg-black/50 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center">
+                                    <i class="fab fa-tiktok mr-2"></i> Reel
+                                </div>
+                            </div>
+                            <div class="p-5 bg-slate-800/50 flex justify-between items-center text-sm text-gray-400">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex items-center"><span class="material-icons-outlined text-base mr-1.5 text-red-400">favorite</span> 890k</div>
+                                    <div class="flex items-center"><span class="material-icons-outlined text-base mr-1.5">chat_bubble_outline</span> 3.4k</div>
+                                </div>
+                                <span class="text-xs">Apr 10, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 text-center">
+                        <button class="text-gray-300 hover:bg-slate-700/50 font-medium transition-colors py-2 px-6 rounded-lg border border-slate-600">
+                            Load More
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-[var(--card-bg)] rounded-xl shadow-lg p-8 border border-slate-700/50" x-cloak="" x-show="tab === 'about'">
+                    <h3 class="text-2xl font-bold text-white mb-4">About Me</h3>
+                    <div class="prose prose-invert max-w-none text-gray-300">
+                        <p>Hey there, I'm Asel! My journey as a content creator began with a single backpacking trip through Southeast Asia. I fell in love with capturing not just the stunning landscapes, but the stories of the people I met along the way. My blog and social channels are a canvas where I paint my experiences, hoping to inspire others to step out of their comfort zones.</p>
+                        <p>I specialize in creating authentic, engaging content that highlights unique travel experiences, sustainable practices, and the beauty of cultural exchange. Whether it's a cinematic travel video, a detailed city guide, or a vibrant Instagram story, my goal is to transport my audience to new destinations.</p>
+                        <h4 class="text-white">Services Offered:</h4>
+                        <ul>
+                            <li>Sponsored Blog Posts &amp; Social Media Campaigns</li>
+                            <li>High-Quality Photography &amp; Videography</li>
+                            <li>Brand Ambassadorships</li>
+                            <li>Content for Tourism Boards</li>
+                        </ul>
+                        <p>Let's collaborate to create something amazing!</p>
+                    </div>
+                </div>
+                <div class="space-y-6" x-cloak="" x-show="tab === 'reviews'">
+                    <div class="bg-[var(--card-bg)] rounded-xl shadow-lg p-6 border border-slate-700/50">
+                        <div class="flex items-start space-x-4">
+                            <img alt="Reviewer photo" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/a/ACg8ocK1wYhYw-wO1P9A8Z8E9T1L5J9H-jJ5N7B6D0F2Y9G=s96-c"/>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h4 class="font-semibold text-white">Sarah @ Wanderlust Gear</h4>
+                                        <p class="text-xs text-gray-400">May 20, 2024</p>
+                                    </div>
+                                    <div class="flex items-center text-yellow-400">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="mt-3 text-gray-300">"Working with Asel was an absolute pleasure. Her creativity and professionalism were outstanding. The content she produced for our Bali campaign was not only beautiful but also drove significant engagement. Highly recommended!"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[var(--card-bg)] rounded-xl shadow-lg p-6 border border-slate-700/50">
+                        <div class="flex items-start space-x-4">
+                            <img alt="Reviewer photo" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/a/ACg8ocLS8J7R8A1z2B3c4D5E6F7G8H9I0J1K2L3M4N5O6P7=s96-c"/>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h4 class="font-semibold text-white">Marco @ TasteIt</h4>
+                                        <p class="text-xs text-gray-400">May 5, 2024</p>
+                                    </div>
+                                    <div class="flex items-center text-yellow-400">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                                <p class="mt-3 text-gray-300">"Asel's video on Rome was a masterpiece. She has a natural talent for storytelling that truly resonates with viewers. We saw a noticeable increase in traffic from her collaboration. We look forward to working with her again."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-slate-900/80 py-8 px-4 sm:px-6 lg:px-8 border-t border-slate-700/50 mt-auto">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center text-gray-500 text-sm">
+                ©
+                <script>
+                    document.write(new Date().getFullYear())
+                </script> QazCreators. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</div>
+
+</body></html>

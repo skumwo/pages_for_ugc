@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Регистрация Блогера</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style type="text/tailwindcss">
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+        }
+        .platform-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6B7280;
+        }
+        .input-field {
+            padding-left: 3rem;
+            background-color: #1F2937;
+            border-color: #374151;
+            color: #F3F4F6;
+            border-radius: 0.5rem;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+        .input-field:focus {
+            border-color: #8B5CF6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+            outline: none;
+        }
+        .select-field {
+            background-color: #1F2937;
+            border-color: #374151;
+            color: #F3F4F6;
+            border-radius: 0.5rem;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            padding-left: 1rem;
+            padding-right: 2.5rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+            background-position: right 0.75rem center;
+            background-repeat: no-repeat;
+            background-size: 1.25em 1.25em;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        .select-field:focus {
+            border-color: #8B5CF6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+            outline: none;
+        }
+        .platform-button {
+            border: 1px solid #374151;
+            transition: all 0.2s ease-in-out;
+        }
+        .platform-button:hover {
+            border-color: #4B5563;
+            background-color: #374151;
+        }
+        .platform-button.active {
+            border-color: #8B5CF6;
+            color: white;
+        }
+        .platform-button.active.instagram { background-color: #E1306C; border-color: #E1306C;}
+        .platform-button.active.tiktok     { background-color: #000000; border-color: #000000;}
+        .platform-button.active.youtube   { background-color: #FF0000; border-color: #FF0000;}
+    </style>
+</head>
+<body class="text-gray-200">
+<div class="min-h-screen flex flex-col" x-data="{ openMenu: false }">
+    <header class="py-6 px-4 sm:px-6 lg:px-8 bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <nav class="flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center">
+                <span class="material-icons-outlined text-purple-400 mr-2 text-3xl">auto_stories</span>
+                <h1 class="text-2xl font-bold text-white">QazCreators</h1>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a class="text-gray-300 hover:text-purple-400 transition-colors" href="#">Маркетплейс</a>
+                <a class="text-gray-300 hover:text-purple-400 transition-colors" href="#">Рейтинги</a>
+                <button class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-5 rounded-lg transition duration-150 ease-in-out transform hover:scale-105">
+                    Регистрация
+                </button>
+            </div>
+            <div class="md:hidden">
+                <button class="text-gray-300 hover:text-white" @click="openMenu = !openMenu">
+                    <span class="material-icons-outlined">menu</span>
+                </button>
+            </div>
+        </nav>
+        <div x-show="openMenu" @click.away="openMenu = false" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="md:hidden absolute top-full left-0 w-full bg-gray-900/90 shadow-lg py-4 px-4">
+            <div class="flex flex-col space-y-4">
+                <a class="block text-gray-300 hover:text-purple-400 transition-colors py-2" href="#">Маркетплейс</a>
+                <a class="block text-gray-300 hover:text-purple-400 transition-colors py-2" href="#">Рейтинги</a>
+                <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-5 rounded-lg transition duration-150 ease-in-out">
+                    Регистрация
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="flex-grow container mx-auto px-4 py-12 md:py-16">
+        <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start max-w-6xl mx-auto">
+            <div class="lg:w-2/5 sticky top-28 hidden lg:block">
+                <h2 class="text-4xl font-bold mb-4 text-white leading-tight">Присоединяйтесь к хабу QazCreators</h2>
+                <p class="text-gray-400 mb-8 text-lg">Расширяем возможности казахстанских талантов. Общайтесь, творите и увлекайте. Ваш путь начинается здесь.</p>
+                <img alt="Современное цифровое искусство, представляющее творческое сотрудничество и связь в Казахстане." class="rounded-xl shadow-2xl w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg2Ychv7JX9v6L9I4__7A8zWkd0LLyd30yU3YxkV2B_aMKsbfZRQlfHyBoBmPwDhtgHmMCQeWefE8481klz3nSxI7eE4wzt3mdpliurOXg7-UDNkNBXltzpnRvKLGCIgYXngGUt_omENQJucNEU8um3kTCaMrUKwgCkXj9vfayg6evGtzMnvyTqAtblPOAnwxTHNoZ8JG7wxnwRuSa18smp_rD6epPn7BxmfxhYjcFP6tDDzyK27lfOCT-GV5Y0zfO1bTpa7VhJNKh"/>
+            </div>
+            <div class="lg:w-3/5 w-full" x-data="{ selectedPlatforms: [], instagramLink: '', tiktokLink: '', youtubeLink: '' }">
+                <div class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-2xl">
+                    <div class="text-center lg:hidden mb-8">
+                        <h2 class="text-3xl font-bold text-white leading-tight">Создайте аккаунт блогера</h2>
+                        <p class="text-gray-400 mt-2">Присоединяйтесь к нашему сообществу авторов в Казахстане.</p>
+                    </div>
+                    <form action="#" class="space-y-6" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-1.5" for="fullName">Полное имя</label>
+                                <div class="relative">
+                                    <span class="material-icons-outlined input-icon">badge</span>
+                                    <input class="w-full input-field" id="fullName" name="fullName" placeholder="например, Аружан Кайраткызы" required="" type="text"/>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-1.5" for="email">Адрес электронной почты</label>
+                                <div class="relative">
+                                    <span class="material-icons-outlined input-icon">alternate_email</span>
+                                    <input class="w-full input-field" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-1.5" for="password">Пароль</label>
+                                <div class="relative">
+                                    <span class="material-icons-outlined input-icon">lock</span>
+                                    <input class="w-full input-field" id="password" name="password" placeholder="Придумайте надежный пароль" required="" type="password"/>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-1.5" for="confirmPassword">Подтвердите пароль</label>
+                                <div class="relative">
+                                    <span class="material-icons-outlined input-icon">lock_person</span>
+                                    <input class="w-full input-field" id="confirmPassword" name="confirmPassword" placeholder="Подтвердите ваш пароль" required="" type="password"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-1.5" for="gender">Пол</label>
+                                <select class="w-full select-field" id="gender" name="gender" required="">
+                                    <option disabled="" selected="" value="">Выберите ваш пол</option>
+                                    <option value="male">Мужской</option>
+                                    <option value="female">Женский</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-1.5" for="phoneNumber">Номер телефона</label>
+                                <div class="relative">
+                                    <span class="material-icons-outlined input-icon">phone_iphone</span>
+                                    <input class="w-full input-field" id="phoneNumber" name="phoneNumber" placeholder="+7 (XXX) XXX-XX-XX" required="" type="tel"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1.5" for="city">Город</label>
+                            <div class="relative">
+                                <span class="material-icons-outlined input-icon">location_city</span>
+                                <input class="w-full input-field" id="city" name="city" placeholder="например, Алматы, Астана" required="" type="text"/>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Подключите ваши платформы <span class="text-gray-500 text-xs"></span></label>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-4"> <label :class="{'active instagram': selectedPlatforms.includes('instagram')}" class="platform-button flex items-center justify-center space-x-2 p-3 rounded-lg cursor-pointer text-gray-300">
+                                <input class="sr-only" type="checkbox" value="instagram" x-model="selectedPlatforms"/>
+                                <svg class="platform-icon" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8A3.6 3.6 0 0 0 20 16.4V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg>
+                                <span class="text-sm font-medium">Instagram</span>
+                            </label>
+                                <label :class="{'active tiktok': selectedPlatforms.includes('tiktok')}" class="platform-button flex items-center justify-center space-x-2 p-3 rounded-lg cursor-pointer text-gray-300">
+                                    <input class="sr-only" type="checkbox" value="tiktok" x-model="selectedPlatforms"/>
+                                    <svg class="platform-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.396 2.012a8.687 8.687 0 0 0-1.895-.292C7.301 1.547 2 5.05 2 10.741v2.983c0 1.248.877 2.378 2.083 2.766 1.402.455 2.804.91 4.206 1.365 1.18.384 2.36.768 3.541 1.152.029.009.057.018.086.027a.526.526 0 0 0 .546-.505c.01-.102.019-.204.029-.306V7.078c.007-.06-.025-.119-.082-.143a.52.52 0 0 0-.48-.007c-.43.14-.86.28-1.29.42-1.266.413-2.532.826-3.798 1.239-.54.176-1.08.352-1.62.528-.15.049-.301-.01-.39-.14-.09-.13-.075-.297.034-.418 1.488-1.687 2.975-3.374 4.463-5.061 1.637-1.85 3.275-3.7 4.912-5.55a.52.52 0 0 0 .114-.492c-.062-.125-.19-.199-.333-.199zm-2.072 1.361c.642.723 1.284 1.446 1.926 2.169.176.198.39.278.64.218 1.68-.39 3.36-.78 5.04-1.17.276-.065.552-.13.828-.195.143-.034.286-.069.43-.103.35-.084.698-.205 1.03-.38C20.672 3.824 22 2.68 22 2.68V9.32a.52.52 0 0 1-.52.52c-.752.01-1.503.02-2.255.03v5.105c-.015.01-.03.02-.045.03-1.07.08-2.14.16-3.21.24-1.22.09-2.43.18-3.65.27-.18.01-.35.02-.53.03-.68.05-1.36.1-2.04.15-1.01.07-2.02.14-3.03.21-1.16.08-2.32.16-3.48.24-.1.007-.2.014-.3.02C3.123 20.916 2 19.89 2 17.525V10.741c0-1.666 1.096-3.022 2.63-3.022h.001c.264-.002.528-.004.792-.007.4-.005.8-.01 1.201-.015.54-.007 1.08-.014 1.62-.02.43-.005.86-.01 1.29-.015z"/>
+                                    </svg>
+                                    <span class="text-sm font-medium">TikTok</span>
+                                </label>
+                                <label :class="{'active youtube': selectedPlatforms.includes('youtube')}" class="platform-button flex items-center justify-center space-x-2 p-3 rounded-lg cursor-pointer text-gray-300">
+                                    <input class="sr-only" type="checkbox" value="youtube" x-model="selectedPlatforms"/>
+                                    <svg class="platform-icon" viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33.22 2.65.28 1.3-.07 2.49.1 3.59.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"></path></svg>
+                                    <span class="text-sm font-medium">YouTube</span>
+                                </label>
+                            </div>
+                            <div class="space-y-4">
+                                <div x-show="selectedPlatforms.includes('instagram')" x-transition.opacity.duration.300ms="">
+                                    <label class="block text-sm font-medium text-gray-300 mb-1.5" for="instagramLink">Ссылка на профиль Instagram</label>
+                                    <input class="w-full input-field focus:border-pink-500 focus:ring-pink-500/30" id="instagramLink" name="instagramLink" placeholder="https://instagram.com/yourprofile" type="url" x-model="instagramLink"/>
+                                </div>
+                                <div x-show="selectedPlatforms.includes('tiktok')" x-transition.opacity.duration.300ms="">
+                                    <label class="block text-sm font-medium text-gray-300 mb-1.5" for="tiktokLink">Ссылка на профиль TikTok</label>
+                                    <input class="w-full input-field focus:border-sky-400 focus:ring-sky-400/30" id="tiktokLink" name="tiktokLink" placeholder="https://tiktok.com/@yourprofile" type="url" x-model="tiktokLink"/>
+                                </div>
+                                <div x-show="selectedPlatforms.includes('youtube')" x-transition.opacity.duration.300ms="">
+                                    <label class="block text-sm font-medium text-gray-300 mb-1.5" for="youtubeLink">Ссылка на канал YouTube</label>
+                                    <input class="w-full input-field focus:border-red-500 focus:ring-red-500/30" id="youtubeLink" name="youtubeLink" placeholder="https://youtube.com/c/yourchannel" type="url" x-model="youtubeLink"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3.5 px-4 rounded-lg transition duration-150 text-lg flex items-center justify-center space-x-2.5 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50" type="submit">
+                                <span class="material-icons-outlined">person_add</span>
+                                <span>Создать аккаунт</span>
+                            </button>
+                        </div>
+                        <p class="text-xs text-gray-500 text-center">Создавая аккаунт, вы соглашаетесь с нашими <a class="text-purple-400 hover:underline" href="#">Условиями использования</a> и <a class="text-purple-400 hover:underline" href="#">Политикой конфиденциальности</a>.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-gray-900 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-t border-gray-700/50">
+        <div class="container mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div>
+                <div class="flex items-center mb-4">
+                    <span class="material-icons-outlined text-purple-400 mr-2 text-2xl">auto_stories</span>
+                    <h3 class="text-xl font-bold text-white">QazCreators</h3>
+                </div>
+                <p class="text-gray-400 mb-4 text-sm">Ведущая UGC-платформа, объединяющая блогеров и аудиторию по всему Казахстану.</p>
+                <p class="text-gray-400 text-sm">Подписывайтесь на нас:</p>
+                <div class="flex space-x-3 mt-3">
+                    <a class="text-gray-400 hover:text-purple-400 transition-colors" href="#"><svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg></a>
+                    <a class="text-gray-400 hover:text-purple-400 transition-colors" href="#"><svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.023.047 1.351.058 3.807.058h.468c2.456 0 2.784-.011 3.807-.058.975-.045 1.504-.207 1.857-.344.467-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.047-1.023.058-1.351.058-3.807v-.468c0-2.456-.011-2.784-.058-3.807-.045-.975-.207-1.504-.344-1.857a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" fill-rule="evenodd"></path></svg></a>
+                    <a class="text-gray-400 hover:text-purple-400 transition-colors" href="#"><svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg></a>
+                    <a class="text-gray-400 hover:text-purple-400 transition-colors" href="#"><svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.78 22 12 22 12s0 3.22-.42 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.59.42-7.604.42-7.604.42s-6.014 0-7.604-.42a2.505 2.505 0 0 1-1.768-1.768C2 15.22 2 12 2 12s0-3.22.42-4.814a2.505 2.505 0 0 1 1.768-1.768C5.79 5 11.804 5 11.804 5s6.014 0 7.604.42a2.504 2.504 0 0 1 .404.018zM9.945 15.582V8.418L15.818 12l-5.873 3.582z" fill-rule="evenodd"></path></svg></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Исследуйте</h3>
+                <ul class="space-y-2">
+                    <li><a class="text-gray-400 hover:text-purple-400 transition-colors text-sm" href="#">Маркетплейс</a></li>
+                    <li><a class="text-gray-400 hover:text-purple-400 transition-colors text-sm" href="#">Рейтинги</a></li>
+                    <li><a class="text-gray-400 hover:text-purple-400 transition-colors text-sm" href="#">О нас</a></li>
+                    <li><a class="text-gray-400 hover:text-purple-400 transition-colors text-sm" href="#">Блог</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Будьте в курсе</h3>
+                <p class="text-gray-400 mb-4 text-sm">Получайте эксклюзивные акции и обновления прямо на вашу почту.</p>
+                <form class="flex">
+                    <input class="w-full bg-gray-800 border border-gray-700 text-gray-300 rounded-l-lg py-2.5 px-3 focus:ring-purple-500 focus:border-purple-500 placeholder-gray-500 text-sm" placeholder="Введите ваш email" type="email"/>
+                    <button class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2.5 px-4 rounded-r-lg transition duration-150 text-sm" type="submit">
+                        Подписаться
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="mt-10 pt-8 border-t border-gray-700/50 text-center text-gray-500 text-sm">
+            © <script>document.write(new Date().getFullYear())</script> QazCreators. Сделано с ❤️ в Казахстане.
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

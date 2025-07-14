@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>QazCreators - Детали продукта</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+  <style type="text/tailwindcss">
+    :root {
+      --primary-purple: #8B5CF6;
+      --primary-teal: #2DD4BF;
+      --primary-pink: #EC4899;
+      --dark-bg: #0F172A;
+      --card-bg: #1E293B;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--dark-bg);
+      color: #CBD5E1;
+    }
+    .btn-glow:hover {
+      box-shadow: 0 0 20px 5px rgba(139, 92, 246, 0.5);
+    }
+    .card-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+  </style>
+</head>
+<body class="text-gray-300">
+<div class="min-h-screen flex flex-col">
+  <header class="py-4 px-4 sm:px-6 lg:px-8 bg-slate-900/70 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-slate-700/50">
+    <nav class="flex items-center justify-between max-w-7xl mx-auto">
+      <div class="flex items-center flex-shrink-0">
+        <span class="material-icons-outlined text-[var(--primary-purple)] mr-2 text-3xl">hub</span>
+        <h1 class="text-2xl font-bold text-white">QazCreators</h1>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors" href="#">Маркетплейс</a>
+        <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors" href="#">Авторы</a>
+        <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors" href="#">Для брендов</a>
+      </div>
+      <div class="hidden sm:flex items-center space-x-2">
+        <a class="text-gray-300 hover:bg-slate-700/50 font-medium transition-colors py-2 px-4 rounded-lg" href="#">Войти</a>
+        <a class="bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ease-in-out transform hover:scale-105 btn-glow flex items-center space-x-2" href="#">
+          <span>Регистрация</span>
+          <span class="material-icons-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+          <span class="material-icons-outlined text-3xl">menu</span>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden mt-4">
+      <a href="#" class="block py-2 px-4 text-sm text-gray-300 hover:bg-slate-700/50 rounded">Маркетплейс</a>
+      <a href="#" class="block py-2 px-4 text-sm text-gray-300 hover:bg-slate-700/50 rounded">Авторы</a>
+      <a href="#" class="block py-2 px-4 text-sm text-gray-300 hover:bg-slate-700/50 rounded">Для брендов</a>
+      <div class="border-t border-slate-700 mt-4 pt-4">
+        <a class="block text-center w-full text-gray-300 hover:bg-slate-700/50 font-medium transition-colors py-2 px-4 rounded-lg mb-2" href="#">Войти</a>
+        <a class="block text-center w-full bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ease-in-out transform hover:scale-105 btn-glow" href="#">
+          <span>Регистрация</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <main class="flex-grow py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <a class="inline-flex items-center text-gray-400 hover:text-white transition-colors" href="#">
+          <span class="material-icons-outlined mr-2">arrow_back</span>
+          Назад
+        </a>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div class="bg-[var(--card-bg)] p-6 rounded-2xl shadow-lg border border-slate-700/50">
+          <img alt="Красный спортивный кроссовок" class="w-full h-auto object-cover rounded-xl shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt14oVeGzVcC-2LIXPc9dPVRW30YpSeKbMLDVItUCch_Y-eZJ2WQl0K7qVsqXm2Fj5kT9eExTn5paUoLnfR8wD1Fidrct2OHY8PXHMeketncOIX4KExzacWLhEgC2E_nPnTBx5C6VbJTBe-2-UwtKtKbh3VLt9xGIMI-dmKU6SdC_CXYw8iEqXthJyGn6QVt4qiRX0Xm5qwrXGEjrd2AWV0Qqq2bvJKcNBL8uQ0aG7Ccvez2equzwDoE5CoS5eJSH5lERWHcbap9N9"/>
+        </div>
+        <div class="flex flex-col justify-center">
+          <span class="text-sm font-semibold text-[var(--primary-teal)] uppercase tracking-wider mb-2">Спорт и отдых</span>
+          <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">Кроссовки AeroBoost X1</h1>
+          <p class="text-lg text-gray-400 mb-6">
+            Испытайте непревзойденный комфорт и производительность с AeroBoost X1. Разработанные с использованием нашей новейшей сверхчувствительной пенной технологии и легчайшего сетчатого верха, эти кроссовки созданы для бегунов, которым важны скорость и стиль.
+          </p>
+          <div class="bg-[var(--card-bg)] p-6 rounded-2xl border border-slate-700/50">
+            <h2 class="text-xl font-bold text-white mb-4">О бренде</h2>
+            <div class="flex items-center">
+              <img alt="Логотип бренда" class="w-16 h-16 rounded-full mr-4 border-2 border-slate-600" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo0soxoFA3M1vjtzp65hiqVj1b5gMNPZlg7_OC-lfkfn2nbs0OqmPLhubLJ8ui9fKlxoyBO3cltZkOP-lyYXk6kY_ggdt2PF_IYCeKFYHWA0MKhQlSFOm_MDrG-S53HdP8SKxImoIpeEhCGVHHoV5oRuH4g1vbmixJtTSOw0RokGaROAfHClM8Me8iog0L8KqH9kFr-lvPXnPBhUIagkDQ6bBx16kzKnoeoZP9VPwM_vSVcTnI9zDNj_OmU0ynHz3aVJ5zt6vH3k9v"/>
+              <div>
+                <h3 class="text-lg font-semibold text-white">Momentum Athletics</h3>
+                <p class="text-gray-400 text-sm">Расширяя границы инноваций в спортивной одежде.</p>
+                <a class="text-[var(--primary-purple)] hover:text-purple-400 transition-colors font-medium text-sm flex items-center mt-1" href="#">
+                  Профиль бренда <span class="material-icons-outlined text-sm ml-1">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <a class="bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-bold py-3 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 btn-glow text-lg flex items-center justify-center space-x-2" href="#">
+              <span class="material-icons-outlined">hub</span>
+              <span>Подать заявку</span>
+            </a>
+            <a class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 text-lg flex items-center justify-center space-x-2" href="#">
+              <span class="material-icons-outlined">bookmark_border</span>
+              <span>Сохранить товар</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-3xl font-extrabold text-white text-center mb-8">Вам также может понравиться</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="bg-[var(--card-bg)] rounded-2xl shadow-lg border border-slate-700/50 overflow-hidden group transition-all duration-300 ease-in-out card-lift">
+            <div class="overflow-hidden">
+              <img alt="Похожий товар 1" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4Ws1eeB799XnlXIm_KQRtmO19Oiu7xion3WMrYL-bii8SC3-N4CBurCU-wbCsjyh-QO8Nulmjth1zEqFwpo_g7HIrUVBxGbEGcF1uh3IRMlMhTzGNlJp5dGczBMIWiOm6J6CZN4GSEbwLu5uIzRZSd2KXBDA-NaVO9BGSvpCTQ7Q9cJLyjPEb_9w29najbGQIteLIZ1HQU_G5z3EnW5kW3mrwemu_XfBvY0GaEKq7m49IVM8ieIgNMnJ8XMET09B5PJoISod0GQYV"/>
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold text-white truncate">Бегуны Velocity Vibe</h3>
+              <p class="text-sm text-gray-400">Momentum Athletics</p>
+              <a class="text-sm text-[var(--primary-teal)] hover:text-teal-300 transition-colors mt-2 inline-block" href="#">Подробнее</a>
+            </div>
+          </div>
+          <div class="bg-[var(--card-bg)] rounded-2xl shadow-lg border border-slate-700/50 overflow-hidden group transition-all duration-300 ease-in-out card-lift">
+            <div class="overflow-hidden">
+              <img alt="Похожий товар 2" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7u8bZ6U4sj1KUrKOXuNZH0S7dD3sKbP9XVvLHVhzjOrfT4KwZnkDv5iflUo73PfuMviLn5uaz1oTxOJztaIRfnCiKnGrwasLGEpOUojskH0GvZ3Wr-M38f8YaBD7Y6LvZ1rmFViyluP3ED4SAMVVIXXoRZqCon02TyHWHVdtAbwNAfLn_kc2NlERMwbm6Fclcds2oTGvtnSNhT5AWTGYkqaclCIC6AgfaPhJT___AQ28kn5ZbEf22079yq8ZWjMvOChe13vQJbHAG"/>
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold text-white truncate">Кроссовки FlexFit</h3>
+              <p class="text-sm text-gray-400">Momentum Athletics</p>
+              <a class="text-sm text-[var(--primary-teal)] hover:text-teal-300 transition-colors mt-2 inline-block" href="#">Подробнее</a>
+            </div>
+          </div>
+          <div class="bg-[var(--card-bg)] rounded-2xl shadow-lg border border-slate-700/50 overflow-hidden group transition-all duration-300 ease-in-out card-lift">
+            <div class="overflow-hidden">
+              <img alt="Похожий товар 3" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7xpSHgb7f6pfUOJvcs2mFnVUiN4WAR7arCCAvx9cd8zM5fEJPSwFS03qOYIRmy9wPL1rNs74XI3NsA6TGIneSFrSR3OVFCZtD92et4af8Kqe_FwqgTe_oRc7JdxRfiaLyjBliqrOxwfck3frEtH8ux9KJHyaTwrfJqoGTSFl3cxEyi8EXVsN2aYXgsHuEhIYJymhRfoGPelIC6PLLbtLzA-XWiJL_-A8icMkvVHLlOXyJNhT_wkC35V3z7WTVy95cy8yqB8_zNFDr"/>
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold text-white truncate">Сникеры Urban Strider</h3>
+              <p class="text-sm text-gray-400">Momentum Athletics</p>
+              <a class="text-sm text-[var(--primary-teal)] hover:text-teal-300 transition-colors mt-2 inline-block" href="#">Подробнее</a>
+            </div>
+          </div>
+          <div class="bg-[var(--card-bg)] rounded-2xl shadow-lg border border-slate-700/50 overflow-hidden group transition-all duration-300 ease-in-out card-lift">
+            <div class="overflow-hidden">
+              <img alt="Похожий товар 4" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE8sT68oeYUG40CkIUI87_jOeP855DjLxb66AaiPtjZDhKkNJaCy7NGlbNRGJ5rHlGdWPdtfiMn01apZBgv0GvM0AxziLTzSzcII-nYYRDitHSsZ3s9YXquw-pzFzsxP13UB3Dqq6BzAzWf6KvGL4ry-_fY4tRBBO0KZ3ZEhP6zHTjjX02LLUSc630FsZNKj_9YiENXgTb3NLWfN2MJdzfYAuhVeLdOzoMaP5YQr4RxxeS5Zhepgle94cqKvnpANZMUzAU36maIXZb"/>
+            </div>
+            <div class="p-4">
+              <h3 class="font-semibold text-white truncate">Ботинки TrailBlazer</h3>
+              <p class="text-sm text-gray-400">Momentum Athletics</p>
+              <a class="text-sm text-[var(--primary-teal)] hover:text-teal-300 transition-colors mt-2 inline-block" href="#">Подробнее</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-slate-900/80 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-700/50 mt-auto">
+    <div class="container mx-auto max-w-7xl">
+      <div class="text-center text-gray-500 text-sm">
+        © <script>document.write(new Date().getFullYear())</script> QazCreators. Сделано с ❤️ в Казахстане.
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Скрипт для мобильного меню
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+</body>
+</html>

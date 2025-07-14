@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Профиль бренда - QazCreators</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --background-dark: #0F172A;
+            --primary-accent: #7C3AED;
+            --primary-accent-hover: #6D28D9;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--background-dark);
+            color: #E5E7EB;
+        }
+        .stat-item {
+            @apply text-center p-4 bg-slate-800/50 border border-slate-700 rounded-xl;
+        }
+        .stat-value {
+            @apply text-2xl font-bold text-white;
+        }
+        .stat-label {
+            @apply text-sm text-slate-400 mt-1;
+        }
+        .nav-link {
+            @apply text-slate-300 hover:text-white transition-colors duration-200;
+        }
+        .card {
+            @apply bg-slate-800/70 border border-slate-700 rounded-2xl;
+        }
+        .btn-primary {
+            @apply bg-[var(--primary-accent)] hover:bg-[var(--primary-accent-hover)] text-white font-semibold py-2 px-5 rounded-lg transition-all duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 active:scale-95 shadow-lg shadow-purple-600/30;
+        }
+        .btn-secondary {
+            @apply bg-slate-700 hover:bg-slate-600 text-white p-2 rounded-lg transition-all duration-200 transform hover:scale-110 active:scale-95;
+        }
+        .btn-secondary-inactive {
+            @apply bg-slate-800 text-slate-400 p-2 rounded-lg transition-all duration-200 transform hover:bg-slate-700 hover:text-white hover:scale-110 active:scale-95;
+        }
+    </style>
+</head>
+<body class="bg-background-dark">
+<div class="min-h-screen flex flex-col">
+    <header x-data="{ mobileMenuOpen: false }" class="py-4 px-4 sm:px-6 lg:px-8 bg-slate-900/60 backdrop-blur-md shadow-md sticky top-0 z-50 border-b border-slate-800">
+        <nav class="flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center space-x-3">
+                <span class="material-icons-outlined text-purple-400 text-3xl">hub</span>
+                <h1 class="text-2xl font-bold text-white tracking-tight">QazCreators</h1>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="nav-link font-medium" href="#">Маркетплейс</a>
+                <a class="nav-link font-medium" href="#">Авторы</a>
+                <a class="nav-link font-medium" href="#">Для брендов</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <a class="text-slate-300 hover:text-white transition-colors duration-300 font-semibold" href="#">Войти</a>
+                <a class="btn-primary" href="#">Регистрация</a>
+            </div>
+            <div class="md:hidden">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-slate-300 hover:text-white">
+                    <span class="material-icons-outlined" x-text="mobileMenuOpen ? 'close' : 'menu'">menu</span>
+                </button>
+            </div>
+        </nav>
+        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden mt-4 space-y-2 border-t border-slate-800 pt-4" x-transition style="display:none;">
+            <a href="#" class="block text-slate-300 hover:text-white bg-slate-800/50 rounded-md py-2 px-3 font-medium transition-colors">Маркетплейс</a>
+            <a href="#" class="block text-slate-300 hover:text-white bg-slate-800/50 rounded-md py-2 px-3 font-medium transition-colors">Авторы</a>
+            <a href="#" class="block text-slate-300 hover:text-white bg-slate-800/50 rounded-md py-2 px-3 font-medium transition-colors">Для брендов</a>
+            <div class="border-t border-slate-800 my-2"></div>
+            <a href="#" class="block text-slate-300 hover:text-white bg-slate-800/50 rounded-md py-2 px-3 font-medium transition-colors">Войти</a>
+            <a href="#" class="block text-center w-full btn-primary py-2.5 mt-2">Регистрация</a>
+        </div>
+    </header>
+    <main class="flex-grow container mx-auto px-4 py-12 md:py-16">
+        <div class="max-w-5xl mx-auto">
+            <div class="relative mb-12">
+                <div class="h-48 md:h-64 rounded-2xl bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDg2Ychv7JX9v6L9I4__7A8zWkd0LLyd30yU3YxkV2B_aMKsbfZRQlfHyBoBmPwDhtgHmMCQeWefE8481klz3nSxI7eE4wzt3mdpliurOXg7-UDNkNBXltzpnRvKLGCIgYXngGUt_omENQJucNEU8um3kTCaMrUKwgCkXj9vfayg6evGtzMnvyTqAtblPOAnwxTHNoZ8JG7wxnwRuSa18smp_rD6epPn7BxmfxhYjcFP6tDDzyK27lfOCT-GV5Y0zfO1bTpa7VhJNKh')"></div>
+                <div class="absolute bottom-0 left-8 transform translate-y-1/2">
+                    <img alt="Логотип бренда" class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-slate-900 object-cover shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY3iaaZqf9wGefKzCQP3LTqPYSPozIYXA6b5o17KTutXQYvCPfbJ8WyxFkSiM6xqAxVHnUGf9ShIeYpAwBr39dcuneVuMXWT68U94dI5kWt_IwHHZ6yMygk8nP8roAmyTcau7jj4U0nhrl7SiPbeZZCgfjAHXXGNaE621Od7xQKwoel-nQUrlYxtoU_xJCUxg7zY8ZiXEB1H-__BdnWT_OjxJYT5JoHWlIhW_kNBSdiPU1jWalab5mL2LvNE7ZUnJCzG1TC7Pg20pl"/>
+                </div>
+            </div>
+            <div class="pt-24 px-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <div class="flex items-center gap-3">
+                            <h2 class="text-4xl font-extrabold text-white tracking-tight">InnovateTech KZ</h2>
+                            <div class="flex items-center text-purple-400">
+                                <span class="material-icons-outlined text-xl">verified</span>
+                                <span class="font-semibold ml-1">Проверен</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 mt-2 max-w-xl">InnovateTech KZ — ведущая технологическая компания из Алматы, создающая инновационные решения в цифровом пространстве.</p>
+                        <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-500">
+                            <div class="flex items-center"><span class="material-icons-outlined mr-1.5 text-base">location_on</span>Алматы, Казахстан</div>
+                            <div class="flex items-center"><span class="material-icons-outlined mr-1.5 text-base">language</span><a class="text-purple-400 hover:underline" href="#">innovatetech.kz</a></div>
+                            <div class="flex items-center"><span class="material-icons-outlined mr-1.5 text-base">calendar_today</span>В марте 2023</div>
+                        </div>
+                    </div>
+                    <div class="mt-6 md:mt-0 flex-shrink-0 w-full md:w-auto">
+                        <button class="w-full md:w-auto btn-primary py-3 px-6 flex items-center justify-center">
+                            <span class="material-icons-outlined mr-2">send</span>
+                            Связаться с брендом
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-6 mt-10">
+                <div class="stat-item">
+                    <p class="stat-value">12</p>
+                    <p class="stat-label">Продуктов</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-value">4.8 <span class="text-yellow-400 text-xl">★</span></p>
+                    <p class="stat-label">Рейтинг</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-value">25</p>
+                    <p class="stat-label">Сотрудничеств</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-value">15k+</p>
+                    <p class="stat-label">Подписчиков</p>
+                </div>
+            </div>
+            <div class="mt-16 px-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-3xl font-bold text-white">Портфолио</h3>
+                    <div class="flex items-center space-x-2">
+                        <button class="btn-secondary"><span class="material-icons-outlined">grid_view</span></button>
+                        <button class="btn-secondary-inactive"><span class="material-icons-outlined">view_list</span></button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card group overflow-hidden relative">
+                        <img alt="Изображение продукта" class="w-full h-56 object-cover transform transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKZDak9xjyRQoQNp2W8fsAafZFxT45Su24Dg4uTF8Bo5SaM-aTSbIWh3CRrhEZtizrY_EAZDQ-JRAXM4NVNVYgidkRuDZK7CVVR8hyHlA7yY80bq40i8Q2vgwn4AEczLwyHP5Z59DwbCWd1bOnN-JkbAcZyvVK_Clox6Sr0lg8I2Fp0KsJw8Rj3u_xiHI7aYwcrUDuHiRmyEIkYoN01BV-dnJiFFi68CPwckqmVVdkfC9SLLiA6zzQiGhjgZ096iUDY1kYlt_Z2LWi"/>
+                        <div class="p-5">
+                            <span class="bg-blue-500/20 text-blue-300 text-xs font-bold px-3 py-1 rounded-full">Гаджеты</span>
+                            <h4 class="font-bold text-xl text-white mt-3">Quantum Smartwatch X</h4>
+                            <p class="text-slate-400 text-sm mt-1">Будущее на вашем запястье. Следите за здоровьем, будьте на связи.</p>
+                            <a aria-label="Посмотреть Quantum Smartwatch X" class="absolute inset-0" href="#"></a>
+                        </div>
+                    </div>
+                    <div class="card group overflow-hidden relative">
+                        <img alt="Изображение продукта" class="w-full h-56 object-cover transform transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB61wpHsAPJPesHXKMj2SidZfe9xPLwiEoYMmjKgY7j1A3mrUvenk4nCB2b9UKJxVuCai4GtWu2Lv72hybubOE0dRuXvMVLQv65fGmcYLjKneBZUfEpZuVuM05zrYe0et1dSEwPo2nNRgYsLSh87hqIdMYQVcBjiboWDnZW1uMv9-quvOrYFJ-EnTjFza7eaxM2wmVA77Ig3nLoUtuEYziID0gRCG-8RLgGz_5iclICd5bvfGYb0FcWaeOgknT0OMPNyJCLXuTYhlJN"/>
+                        <div class="p-5">
+                            <span class="bg-purple-500/20 text-purple-300 text-xs font-bold px-3 py-1 rounded-full">Программы</span>
+                            <h4 class="font-bold text-xl text-white mt-3">CodeStream IDE</h4>
+                            <p class="text-slate-400 text-sm mt-1">Совместная IDE с ИИ для максимальной продуктивности.</p>
+                            <a aria-label="Посмотреть CodeStream IDE" class="absolute inset-0" href="#"></a>
+                        </div>
+                    </div>
+                    <div class="card group overflow-hidden relative">
+                        <img alt="Изображение продукта" class="w-full h-56 object-cover transform transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuLEOEPUkzY9anYk560teiBOfY7PPAOfQIxxE4EsJTRGogzQFZhCKOtz6A8aN9S1CwydmFrY8aqsAIdjiLJkE_c8Jyg3xt3capWHVyFPjt_r15yMWG2XDM3kaUU1HjUc4tOQXD8bt2HJMN3T7oonzx1vYu2Iu_gDs54j6JRGbP2a6OwyDXiV6aIYHUbQp8SDH8cdmrdessus_nBjJQTaJ-2zhsfVS7cDg49mUkT7Iil96BfC2Hcadvn5OzCswyW3SHUwMSjA_byVYA"/>
+                        <div class="p-5">
+                            <span class="bg-green-500/20 text-green-300 text-xs font-bold px-3 py-1 rounded-full">ИИ</span>
+                            <h4 class="font-bold text-xl text-white mt-3">NeuralNet Processor</h4>
+                            <p class="text-slate-400 text-sm mt-1">Ускорение машинного обучения с революционной эффективностью.</p>
+                            <a aria-label="Посмотреть NeuralNet Processor" class="absolute inset-0" href="#"></a>
+                        </div>
+                    </div>
+                    <div class="card group overflow-hidden md:col-span-2 lg:col-span-1 relative">
+                        <img alt="Изображение продукта" class="w-full h-56 object-cover transform transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQqjhJXdxtFIkkKQYo3llXfVGmQuPBqWPZNpkh1VGFIPgijoT0MkPktOqSQ55CBEMMPhS5OElfIgiiaylZyJVUr_t85_bDCrzA4j-tq73o-_SfOSWPyVkfEn5Ax1MeiV-ZKUnCqthEMt9KA6Ix23Alwol2T0fwJcvnzxV68rIVbnPUGpUrdr3U68EAPwsJrNgKslcr2qPuVhtYuuaEDYZCW9Ka4dzErLBCf47VbOK_KLV9D9u-KU8tTLoFad7NUmhjKrOeJ9c6OPBD"/>
+                        <div class="p-5">
+                            <span class="bg-red-500/20 text-red-300 text-xs font-bold px-3 py-1 rounded-full">Облако</span>
+                            <h4 class="font-bold text-xl text-white mt-3">DataVerse Cloud</h4>
+                            <p class="text-slate-400 text-sm mt-1">Безопасное, масштабируемое облачное хранилище.</p>
+                            <a aria-label="Посмотреть DataVerse Cloud" class="absolute inset-0" href="#"></a>
+                        </div>
+                    </div>
+                    <div class="card group overflow-hidden relative">
+                        <img alt="Изображение продукта" class="w-full h-56 object-cover transform transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjCUfH45g03iIRWfyoq74UhziADrtbVbi0SdqBd_cp7hkWGyd4N0CTpp4prXWR5Lla3yCxdq_5bAW53XfeJmCP0PvTQ8UR7udv-B8YIfoPsdfNau91pcKFFnFntG4v4-JhhJgXXcMPfxwFu9_TYoUMtF-NPYkjwq5y55j0pBJ5GoD8O4KOsYOKd5Hz5XrbMQY1nADgOKRCeabyasQOwx1-z297cdG3hdeUin7F2bq2XWT-9CrktWiO8NwwGS71a90oiZPBoiuBSsnI"/>
+                        <div class="p-5">
+                            <span class="bg-yellow-500/20 text-yellow-300 text-xs font-bold px-3 py-1 rounded-full">Услуги</span>
+                            <h4 class="font-bold text-xl text-white mt-3">Цифровая трансформация</h4>
+                            <p class="text-slate-400 text-sm mt-1">Консалтинговые услуги для вашего бизнеса.</p>
+                            <a aria-label="Посмотреть Цифровая трансформация" class="absolute inset-0" href="#"></a>
+                        </div>
+                    </div>
+                    <div class="card group overflow-hidden relative">
+                        <img alt="Изображение продукта" class="w-full h-56 object-cover transform transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQdluqdxyPf6pkX-9QJJBVXIeRlvyaxW26niuKdHiwhnFBKpcgi3BaadczNuDPfYsGOg-QKb4IYMyBvz6fyVrB4H6k2omVzUsasSvNPaw_IqNy2ltFdPesdhxi0RWoObsQzA5ogcM462NNboBop_DGQi1s4WJb-OTJ1a0w6yjvk_vLsyS8ir41HNXKOKk2U303mJ9oLYk0omq5sAGHT7I3Q9pRX1nCN1TudvqIyebLIyKQsxxKYdI8qsloeajFSTbfgmFXjdGJ8rL4"/>
+                        <div class="p-5">
+                            <span class="bg-indigo-500/20 text-indigo-300 text-xs font-bold px-3 py-1 rounded-full">Аналитика</span>
+                            <h4 class="font-bold text-xl text-white mt-3">Insightify Platform</h4>
+                            <p class="text-slate-400 text-sm mt-1">Принимайте решения на основе данных с нашим инструментом.</p>
+                            <a aria-label="Посмотреть Insightify Platform" class="absolute inset-0" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-slate-900 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+        <div class="container mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div>
+                <div class="flex items-center mb-4">
+                    <span class="material-icons-outlined text-purple-400 mr-2 text-2xl">hub</span>
+                    <h3 class="text-xl font-bold text-white">QazCreators</h3>
+                </div>
+                <p class="text-slate-400 mb-4 text-sm">Ведущая UGC-платформа, соединяющая бренды и авторов в Казахстане.</p>
+                <p class="text-slate-400 text-sm">Следите за нами:</p>
+                <div class="flex space-x-3 mt-3">
+                    <a class="text-slate-400 hover:text-purple-400 transition-colors" href="#">...</a>
+                    <a class="text-slate-400 hover:text-purple-400 transition-colors" href="#">...</a>
+                    <a class="text-slate-400 hover:text-purple-400 transition-colors" href="#">...</a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Ресурсы</h3>
+                <ul class="space-y-2">
+                    <li><a class="text-slate-400 hover:text-purple-400 transition-colors text-sm" href="#">Для авторов</a></li>
+                    <li><a class="text-slate-400 hover:text-purple-400 transition-colors text-sm" href="#">Для брендов</a></li>
+                    <li><a class="text-slate-400 hover:text-purple-400 transition-colors text-sm" href="#">Центр помощи</a></li>
+                    <li><a class="text-slate-400 hover:text-purple-400 transition-colors text-sm" href="#">О нас</a></li>
+                    <li><a class="text-slate-400 hover:text-purple-400 transition-colors text-sm" href="#">Блог</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Будьте в курсе</h3>
+                <p class="text-slate-400 mb-4 text-sm">Получайте инсайты и обновления платформы.</p>
+                <form class="flex">
+                    <input class="w-full bg-slate-800 border border-slate-700 text-slate-300 rounded-l-lg py-2.5 px-3 focus:ring-purple-500 focus:border-purple-500 placeholder-slate-500 text-sm" placeholder="Введите ваш email" type="email"/>
+                    <button class="bg-[var(--primary-accent)] hover:bg-[var(--primary-accent-hover)] text-white font-semibold py-2.5 px-4 rounded-r-lg" type="submit">Подписаться</button>
+                </form>
+            </div>
+        </div>
+        <div class="mt-10 pt-8 border-t border-slate-800 text-center text-slate-500 text-sm">
+            © <script>
+            document.write(new Date().getFullYear())
+        </script> QazCreators. Сделано с ❤️ в Казахстане.
+        </div>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>QazCreators - Connect, Collaborate, Create</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-purple: #8B5CF6;
+            --primary-teal: #2DD4BF;
+            --primary-pink: #EC4899;
+            --dark-bg: #0F172A;
+            --card-bg: #1E293B;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+        }
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 1)), url('https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+        }
+        .btn-glow {
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 20px 5px rgba(139, 92, 246, 0.5);
+        }
+        .card-glow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.2);
+        }
+        .brand-card-glow:hover {
+            box-shadow: 0 0 25px 0px rgba(139, 92, 246, 0.3);
+        }
+        .creator-card-glow:hover {
+            box-shadow: 0 0 25px 0px rgba(45, 212, 191, 0.3);
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-teal));
+        }
+    </style>
+</head>
+<body class="text-gray-300">
+<div class="min-h-screen flex flex-col">
+    <header class="py-4 px-4 sm:px-6 lg:px-8 bg-slate-900/70 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-slate-700/50">
+        <nav class="flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center">
+                <span class="material-icons-outlined text-[var(--primary-purple)] mr-2 text-3xl">hub</span>
+                <h1 class="text-2xl font-bold text-white">QazCreators</h1>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors" href="#">Marketplace</a>
+                <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors" href="#">Creators</a>
+                <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors" href="#">For Brands</a>
+            </div>
+            <div class="flex items-center space-x-2">
+                <a class="text-gray-300 hover:bg-slate-700/50 font-medium transition-colors py-2 px-4 rounded-lg" href="#">Log In</a>
+                <a class="bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ease-in-out transform hover:scale-105 btn-glow flex items-center space-x-2" href="#">
+                    <span>Sign Up Free</span>
+                    <span class="material-icons-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main class="flex-grow">
+        <div class="relative hero-bg">
+            <div class="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-80px)] text-center px-4 pt-16 pb-24">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6"> The Creative Spark for Your Brand. <br/> Right here in <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-teal-300">Kazakhstan</span>. </h1>
+                <p class="max-w-4xl text-lg md:text-xl text-gray-300 mb-10"> QazCreators is the ultimate User-Generated Content marketplace designed for Kazakhstan. We connect visionary brands with the nation's most talented creators to produce authentic content that truly resonates. </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a class="bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-bold py-4 px-10 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 btn-glow text-lg flex items-center justify-center space-x-2" href="#">
+                        <span>Find Creators</span>
+                        <span class="material-icons-outlined">storefront</span>
+                    </a>
+                    <a class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-4 px-10 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 text-lg flex items-center justify-center space-x-2" href="#">
+                        <span>Become a Creator</span>
+                        <span class="material-icons-outlined">brush</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <section class="py-20 sm:py-28 bg-gradient-to-b from-slate-900 to-slate-800" id="for-brands">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 max-w-4xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">For <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Brands</span></h2>
+                    <p class="text-lg text-gray-300">Tired of sterile, inauthentic marketing? Tap into the power of real people. QazCreators gives you direct access to a diverse pool of local creators who can generate powerful, engaging UGC that drives results.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1">
+                        <ul class="space-y-6">
+                            <li class="flex items-start">
+                                <span class="material-icons-outlined text-[var(--primary-purple)] mr-4 mt-1 text-2xl">check_circle</span>
+                                <span class="text-gray-300"><strong class="font-semibold text-white text-lg">Discover Authentic Voices:</strong><br/> Browse thousands of vetted creators from across Kazakhstan to find the perfect match for your brand's aesthetic and values.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="material-icons-outlined text-[var(--primary-purple)] mr-4 mt-1 text-2xl">check_circle</span>
+                                <span class="text-gray-300"><strong class="font-semibold text-white text-lg">Streamline Your Campaigns:</strong><br/> Launch campaigns, manage briefs, and handle content delivery effortlessly through our intuitive dashboard. No more messy spreadsheets or endless email chains.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="material-icons-outlined text-[var(--primary-purple)] mr-4 mt-1 text-2xl">check_circle</span>
+                                <span class="text-gray-300"><strong class="font-semibold text-white text-lg">Maximize Your ROI:</strong><br/> Get high-quality, cost-effective content that resonates with the local market, boosting engagement, building trust, and driving sales.</span>
+                            </li>
+                        </ul>
+                        <div class="mt-10 text-center md:text-left">
+                            <a class="inline-block bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-bold py-3 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 btn-glow" href="#">Get Started with UGC</a>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <div class="relative p-6 bg-slate-800/50 rounded-2xl border border-slate-700 brand-card-glow transition-all duration-300">
+                            <img alt="Brand collaboration dashboard" class="rounded-xl shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAde2jJW9HFG37a5UmuD8OUTris84si950QiudzebndsFntZ-gtmEkUFZ6cEeqsULYv50Y4dfwImWDR0ds3_6phszNoHRzUG-c6uGj8F1Fc6_Zr70DvyZpoYF9VI4fOHCNnt5vxLWa8Ok7etLBt3C6nZsVrT8as16J8XXwZJOqrMyJE3jYCQkh8hYcKqy_eFJGMuoCXlYdj8eBradeQViLatyubwCI40VLfWCeQMgICfWZTjjV5E7jj0p7bLeqW15XgIugYXKYAwbZm"/>
+                            <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white">
+                                <span class="material-icons-outlined text-5xl">rocket_launch</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-20 sm:py-28 bg-gradient-to-b from-slate-800 to-slate-900" id="for-creators">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 max-w-4xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">For <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">Creators</span></h2>
+                    <p class="text-lg text-gray-300">Your creativity has value. QazCreators empowers you to turn your passion into a profession. Collaborate with leading brands, build your portfolio, and earn money doing what you love.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="relative p-6 bg-slate-800/50 rounded-2xl border border-slate-700 creator-card-glow transition-all duration-300">
+                            <img alt="Creator showcasing their work" class="rounded-xl shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBTB8AYrGvNGMJFOFfvPPbUkmhQaYmQIxzp3Dm4vLVN0nla1pRLRQI0hc-S2L2GaIDRZUADOT0_H-V9Wl5V7mFFdHSIlTpzXIJu2BAhpmwLe9t0RZuscvD0jz8rqy_8F6ILLH9A7tPILHYuHCfN_KSBnjuexeXH6Moe_a_IxL84Thp7vAd0W54UCH6OIFKbV2TiWKRX2YwJsNTlPhls7P6oQYMlEDw4QYVqUFXJHmxLBybRskcjuYpgg6UDkHIaqjZe7u3ZjEF0DfP"/>
+                            <div class="absolute -top-8 -right-8 w-28 h-28 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-full flex items-center justify-center text-white p-2">
+                                <span class="material-icons-outlined text-6xl">monetization_on</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="space-y-6">
+                            <li class="flex items-start">
+                                <span class="material-icons-outlined text-[var(--primary-teal)] mr-4 mt-1 text-2xl">check_circle</span>
+                                <span class="text-gray-300"><strong class="font-semibold text-white text-lg">Connect with Top Brands:</strong><br/> Get discovered by local and international brands actively seeking creators like you for their next campaign.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="material-icons-outlined text-[var(--primary-teal)] mr-4 mt-1 text-2xl">check_circle</span>
+                                <span class="text-gray-300"><strong class="font-semibold text-white text-lg">Monetize Your Influence:</strong><br/> Set your rates, manage collaboration offers, and receive secure, timely payments for your hard work.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="material-icons-outlined text-[var(--primary-teal)] mr-4 mt-1 text-2xl">check_circle</span>
+                                <span class="text-gray-300"><strong class="font-semibold text-white text-lg">Showcase Your Talent:</strong><br/> Build a stunning portfolio on our platform to showcase your best work and attract more opportunities. We handle the business, you handle the creativity.</span>
+                            </li>
+                        </ul>
+                        <div class="mt-10 text-center md:text-left">
+                            <a class="inline-block bg-[var(--primary-teal)] hover:bg-teal-500 text-slate-900 font-bold py-3 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105" href="#">Start Creating &amp; Earning</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-20 sm:py-28 bg-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-white">Everything You Need to Succeed</h2>
+                    <p class="mt-4 text-xl text-gray-400">A feature-rich platform built for seamless collaboration.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg transition duration-300 card-glow border border-transparent hover:border-purple-500 text-center">
+                        <div class="flex items-center justify-center w-16 h-16 rounded-full feature-icon mb-6 mx-auto">
+                            <span class="material-icons-outlined text-white text-4xl">search</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Advanced Search</h3>
+                        <p class="text-gray-400">Brands can filter creators by niche, audience demographics, location, and more. Creators can find campaigns that perfectly align with their style.</p>
+                    </div>
+                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg transition duration-300 card-glow border border-transparent hover:border-teal-500 text-center">
+                        <div class="flex items-center justify-center w-16 h-16 rounded-full feature-icon mb-6 mx-auto">
+                            <span class="material-icons-outlined text-white text-4xl">hub</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Collaboration Hub</h3>
+                        <p class="text-gray-400">Manage all communication, content submissions, revision requests, and final approvals in one organized, central place.</p>
+                    </div>
+                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg transition duration-300 card-glow border border-transparent hover:border-pink-500 text-center">
+                        <div class="flex items-center justify-center w-16 h-16 rounded-full feature-icon mb-6 mx-auto">
+                            <span class="material-icons-outlined text-white text-4xl">verified_user</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Secure Payments</h3>
+                        <p class="text-gray-400">Our escrow system ensures that creators get paid on time and brands only pay for approved content. Total peace of mind for everyone.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-20 sm:py-28 bg-gradient-to-b from-slate-900 to-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-white">Find Your Next Collaboration</h2>
+                    <p class="mt-4 text-xl text-gray-400">Discover top brands and products looking for talented creators and bloggers just like you.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-slate-800 rounded-2xl shadow-lg transition duration-300 card-glow border border-slate-700/50 overflow-hidden text-center">
+                        <img alt="Tech Product" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHB1gkJc-m25K22WKatSqiUs8sCKi9fuKvNAXkfOPZrOChCz5pUEXOToME_ASGCgXArCmCtRnLwfDCsFRutwcpJGmr7sEOG9CvxF9DlgpAjojtEOzZT-SuCO3ujuJdAiy8XGz5gJW6QEK1snq1s5jU1HgIQDXoixWn8bv31AwzWX9mL9EPqs1lDBghvQDJmYUn9MZr65VBYRUEZ3sQY4ibh4zwHjPLTujpNsDE2BCY1a16NZu73TcDz0wh3EyErqCAkJIbsuSGs05R"/>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Modern Gadgets</h3>
+                            <p class="text-gray-400 text-sm mb-4">Seeking tech reviewers for cutting-edge electronics.</p>
+                            <a class="font-semibold text-[var(--primary-teal)] hover:text-teal-300 transition-colors" href="#">View Opportunity →</a>
+                        </div>
+                    </div>
+                    <div class="bg-slate-800 rounded-2xl shadow-lg transition duration-300 card-glow border border-slate-700/50 overflow-hidden text-center">
+                        <img alt="Fashion Brand" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy2nisHBWcJODXYqsI1YcaAFto8pvGFwcDBmbr1H3h_E-ax3bcNWJy2dpKCe0nOSMZdesZoqSipsVQlJEn746_o4ZmPJJ8WKzjQDzdNPGbhzoPqmP9ZT4P9KvFVztN9bsA9Z67F3m45qpP27rEODETjOUA-smvwgcZFqtxJYsLQ4KSmLAb-cVFGUAyM22hwhGzbvGroZ6-vY2SahYThLbRjG_ppVNOoJq22prGZ9qkVNlI5AN0E8ANK4K08dHFEP_QyH2HcB4hHNP0"/>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Urban Apparel</h3>
+                            <p class="text-gray-400 text-sm mb-4">Fashion bloggers wanted to showcase our new collection.</p>
+                            <a class="font-semibold text-[var(--primary-teal)] hover:text-teal-300 transition-colors" href="#">View Opportunity →</a>
+                        </div>
+                    </div>
+                    <div class="bg-slate-800 rounded-2xl shadow-lg transition duration-300 card-glow border border-slate-700/50 overflow-hidden text-center">
+                        <img alt="Beauty Product" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0VWQlhQczJ36S7bUdripYenAW2V4kylzbf9yI3Yk8FdLd8Sh7I7TKUhfQSQ24eH0NsGJxfP-leMGsFdQantnk23Nfza9fhlw6irxnT7kW9NE9Y8bYsUyzFJr8pZnFGRAr0FHIZ2hX8lXLgyg8r7SjVWkmZYN4QdojGRRumv4ERqRsUmPqB-6KHZUs1xXRDn2Dw_x1wOaNoD4JwToe5W_z5yo0HL_iSJ-kAU2M0d7Q9crEtZRkpGGYhXGoT-A_wst6YfmJOJEBLeeZ"/>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Natural Cosmetics</h3>
+                            <p class="text-gray-400 text-sm mb-4">Beauty influencers for our organic skincare line.</p>
+                            <a class="font-semibold text-[var(--primary-teal)] hover:text-teal-300 transition-colors" href="#">View Opportunity →</a>
+                        </div>
+                    </div>
+                    <div class="bg-slate-800 rounded-2xl shadow-lg transition duration-300 card-glow border border-slate-700/50 overflow-hidden text-center">
+                        <img alt="Food Product" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz6h5rxHU55TavNWikNcaX49w4TYkmNkvffLgcVd-GzqZJSjus3uiGIEMvGtZqnlVkkHWam9G56Tn0Z2nFgEauwxIQ4iwW1lW991sCbDBCdCd7vCiSQksnfoqjDxf6cFWCnt4oqi2ykcoSBP7GrtfrfpNxXdsj7JDm457dnQ6M9dpzxKeNNi_ISH9jNLlZ7YKPwNaH5ZUq_OXDtdfbB56ePuYnG6oWyc4jnod85bYjsynFFL4OehwtJ5IV1lJ7QPMZsAUTz02cKl1U"/>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Gourmet Foods</h3>
+                            <p class="text-gray-400 text-sm mb-4">Food bloggers to review our artisan products.</p>
+                            <a class="font-semibold text-[var(--primary-teal)] hover:text-teal-300 transition-colors" href="#">View Opportunity →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-16 text-center">
+                    <a class="bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-bold py-4 px-10 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 btn-glow text-lg" href="#">Join Now &amp; Start Collaborating</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-slate-900/80 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-700/50">
+        <div class="container mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div>
+                <div class="flex items-center mb-4">
+                    <span class="material-icons-outlined text-[var(--primary-purple)] mr-2 text-2xl">hub</span>
+                    <h3 class="text-xl font-bold text-white">QazCreators</h3>
+                </div>
+                <p class="text-gray-400 mb-4 text-sm">The premier UGC platform connecting brands and creators across Kazakhstan.</p>
+                <p class="text-gray-400 text-sm">Follow us:</p>
+                <div class="flex space-x-3 mt-3">
+                    <a class="text-gray-400 hover:text-[var(--primary-purple)] transition-colors" href="#">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a class="text-gray-400 hover:text-[var(--primary-purple)] transition-colors" href="#">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.023.047 1.351.058 3.807.058h.468c2.456 0 2.784-.011 3.807-.058.975-.045 1.504-.207 1.857-.344.467-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882-.344-1.857.047-1.023.058-1.351-.058-3.807v-.468c0-2.456-.011-2.784-.058-3.807-.045-.975-.207-1.504-.344-1.857a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" fill-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a class="text-gray-400 hover:text-[var(--primary-purple)] transition-colors" href="#">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                        </svg>
+                    </a>
+                    <a class="text-gray-400 hover:text-[var(--primary-purple)] transition-colors" href="#">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path clip-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.78 22 12 22 12s0 3.22-.42 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.59.42-7.604.42-7.604.42s-6.014 0-7.604-.42a2.505 2.505 0 0 1-1.768-1.768C2 15.22 2 12 2 12s0-3.22.42-4.814a2.505 2.505 0 0 1 1.768-1.768C5.79 5 11.804 5 11.804 5s6.014 0 7.604.42a2.504 2.504 0 0 1 .404.018zM9.945 15.582V8.418L15.818 12l-5.873 3.582z" fill-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Resources</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a class="text-gray-400 hover:text-[var(--primary-purple)] transition-colors text-sm" href="#">For Creators</a>
+                    </li>
+                    <li>
+                        <a class="text-gray-400 hover:text-[var(--primary-purple)] transition-colors text-sm" href="#">For Brands</a>
+                    </li>
+                    <li>
+                        <a class="text-gray-400 hover:text-[var(--primary-purple)] transition-colors text-sm" href="#">Help Center</a>
+                    </li>
+                    <li>
+                        <a class="text-gray-400 hover:text-[var(--primary-purple)] transition-colors text-sm" href="#">About Us</a>
+                    </li>
+                    <li>
+                        <a class="text-gray-400 hover:text-[var(--primary-purple)] transition-colors text-sm" href="#">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Stay Updated</h3>
+                <p class="text-gray-400 mb-4 text-sm">Get exclusive insights &amp; platform updates.</p>
+                <form class="flex">
+                    <input class="w-full bg-slate-800 border border-slate-700 text-gray-300 rounded-l-lg py-2.5 px-3 focus:ring-purple-500 focus:border-purple-500 placeholder-gray-500 text-sm" placeholder="Enter your email" type="email"/>
+                    <button class="bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-semibold py-2.5 px-4 rounded-r-lg transition duration-150 text-sm" type="submit"> Subscribe </button>
+                </form>
+            </div>
+        </div>
+        <div class="mt-10 pt-8 border-t border-slate-700/50 text-center text-gray-500 text-sm"> © <script>
+            document.write(new Date().getFullYear())
+        </script> QazCreators. Made with ❤️ in Kazakhstan. </div>
+    </footer>
+</div>
+
+</body></html>
