@@ -50,12 +50,14 @@
         <span class="material-icons-outlined text-[var(--primary-purple)] text-3xl">hub</span>
         <h1 class="text-2xl font-bold text-white">QazCreators</h1>
       </a>
+
       <div class="hidden md:flex items-center space-x-8">
         <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors" href="#">Панель управления</a>
         <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors" href="#">Сотрудничества</a>
         <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors" href="#">Доходы</a>
         <a class="text-[var(--primary-purple)] font-semibold border-b-2 border-[var(--primary-purple)] pb-1" href="#">Мой профиль</a>
       </div>
+
       <div class="flex items-center space-x-2 sm:space-x-4">
         <div class="relative" x-data="{ open: false }">
           <button @click="open = !open" class="relative p-2 text-gray-400 hover:text-white rounded-full hover:bg-slate-800 transition-all">
@@ -89,6 +91,7 @@
             </div>
           </div>
         </div>
+
         <div class="relative" x-data="{ open: false }">
           <button @click="open = !open" class="flex items-center space-x-2 group p-1 pr-2 rounded-full hover:bg-slate-800 transition-colors">
             <img alt="Асель Адеми" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLiALOixo5rBvDv6WUTEyu725d1Tqy_5RR7iUPPRrKbUrNe5ox_NJmQCLlbI8xycJ944UFWp78hBTsqBcAOeyRfiH0b8wwnFZqV0cGBxtm5yn2Io_hzKsJjzIIGDP1IdyQePiOxOLhXy9HPNvejOPDx5AMFaafvQikRhWee-w1Ttcsm3t0wRFYfCUXHOXaIj5EdB5epHfY-UNqRO1UWXXhZqweArXgs5LJbiGLyZgW-wdLbopZDp_gD3X2K9KCwVwVSSa5ufV4HnLb"/>
@@ -104,7 +107,7 @@
               <a class="flex items-center px-4 py-2 text-sm text-gray-300 hover:bg-slate-700/50" href="#">
                 <span class="material-icons-outlined mr-3">dashboard</span>Панель
               </a>
-              <a class="flex items-center px-4 py-2 text-sm text-gray-300 hover:bg-slate-700/50 bg-slate-700/50" href="#">
+              <a class="flex items-center px-4 py-2 text-sm text-gray-300 hover:bg-slate-700/50" href="#">
                 <span class="material-icons-outlined mr-3">account_circle</span>Ред. профиль
               </a>
               <a class="flex items-center px-4 py-2 text-sm text-gray-300 hover:bg-slate-700/50" href="#">
@@ -117,20 +120,23 @@
             </div>
           </div>
         </div>
+
         <div class="md:hidden">
           <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 text-gray-400 hover:text-white rounded-md">
             <span class="material-icons-outlined" x-text="mobileMenuOpen ? 'close' : 'menu'">menu</span>
           </button>
         </div>
       </div>
-      <div class="md:hidden mt-4" x-show="mobileMenuOpen" style="display: none;" x-transition>
-        <div class="flex flex-col space-y-2 pt-2 pb-3 px-2 border-t border-slate-700/50">
-          <a class="block px-3 py-2 rounded-md font-medium text-gray-300 hover:bg-slate-700" href="#">Панель</a>
-          <a class="block px-3 py-2 rounded-md font-medium text-gray-300 hover:bg-slate-700" href="#">Сотрудничества</a>
-          <a class="block px-3 py-2 rounded-md font-medium text-gray-300 hover:bg-slate-700" href="#">Доходы</a>
-          <a class="block px-3 py-2 rounded-md font-medium text-white bg-slate-700" href="#">Мой профиль</a>
-        </div>
+    </nav>
+
+    <div class="md:hidden" x-show="mobileMenuOpen" style="display: none;" x-transition>
+      <div class="flex flex-col space-y-2 pt-2 pb-3 px-2 border-t border-slate-700/50">
+        <a class="block px-3 py-2 rounded-md font-medium text-gray-300 hover:bg-slate-700" href="#">Панель</a>
+        <a class="block px-3 py-2 rounded-md font-medium text-gray-300 hover:bg-slate-700" href="#">Сотрудничества</a>
+        <a class="block px-3 py-2 rounded-md font-medium text-gray-300 hover:bg-slate-700" href="#">Доходы</a>
+        <a class="block px-3 py-2 rounded-md font-medium text-white bg-slate-700" href="#">Мой профиль</a>
       </div>
+    </div>
   </header>
   <main class="flex-grow py-12 sm:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
