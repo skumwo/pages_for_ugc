@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>QazCreators - Добавить новый продукт</title>
+  <title>QazCreators - Добавить новый товар</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
@@ -46,6 +46,12 @@
     }
     .form-help-text {
       @apply mt-2 text-xs text-gray-400;
+    }
+    .checkbox-label {
+      @apply flex items-center space-x-3 cursor-pointer text-sm;
+    }
+    .checkbox-input {
+      @apply h-5 w-5 rounded border-slate-600 bg-slate-800 text-purple-600 focus:ring-purple-500;
     }
     @keyframes fadeInDown {
       from {
@@ -107,91 +113,90 @@
 <body class="text-gray-300">
 <div class="min-h-screen flex flex-col">
   <header class="py-4 px-4 sm:px-6 lg:px-8 bg-slate-900/70 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b border-slate-700/50">
-    <nav class="flex items-center justify-between max-w-7xl mx-auto relative">
+    <nav class="flex items-center justify-between max-w-7xl mx-auto">
       <div class="flex items-center header-element" style="animation-delay: 0.1s;">
         <span class="material-icons-outlined text-[var(--primary-purple)] mr-2 text-3xl transform transition-transform duration-500 hover:rotate-12">hub</span>
         <h1 class="text-2xl font-bold text-white">QazCreators</h1>
       </div>
-
       <div class="hidden md:flex items-center space-x-8">
         <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors header-element" href="#" style="animation-delay: 0.2s;">Панель управления</a>
         <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors header-element" href="#" style="animation-delay: 0.3s;">Кампании</a>
-        <a class="text-white font-semibold header-element" href="#" style="animation-delay: 0.4s;">Продукты</a>
+        <a class="text-white font-semibold header-element" href="#" style="animation-delay: 0.4s;">Товары</a>
         <a class="text-gray-300 hover:text-[var(--primary-purple)] transition-colors header-element" href="#" style="animation-delay: 0.5s;">Авторы</a>
       </div>
-
-      <div class="flex items-center space-x-2 md:space-x-4 header-element" style="animation-delay: 0.6s;">
-        <div class="dropdown">
-          <button class="relative p-2 text-gray-400 hover:text-white transition-transform duration-300 hover:scale-110">
-            <span class="material-icons-outlined">notifications</span>
-            <span class="absolute top-1 right-1 h-2 w-2 rounded-full bg-pink-500 animate-pulse"></span>
-          </button>
-          <div class="dropdown-content mt-3">
-            <div class="px-4 py-2 font-semibold text-white text-sm">Уведомления</div>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="material-icons-outlined text-green-400 mr-3">campaign</span>
-              <div>
-                <p class="font-medium">Запущена новая кампания</p>
-                <p class="text-xs text-gray-400">"Летние вайбы" теперь активна.</p>
-              </div>
-            </a>
-            <a class="dropdown-item" href="#">
-              <span class="material-icons-outlined text-teal-400 mr-3">person_add</span>
-              <div>
-                <p class="font-medium">Автор подал заявку</p>
-                <p class="text-xs text-gray-400">@StyleByJane подал(а) заявку.</p>
-              </div>
-            </a>
-            <a class="dropdown-item" href="#">
-              <span class="material-icons-outlined text-yellow-400 mr-3">warning</span>
-              <div>
-                <p class="font-medium">Скоро оплата</p>
-                <p class="text-xs text-gray-400">Счет #12345 к оплате завтра.</p>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="block text-center py-2 text-sm text-[var(--primary-purple)] hover:bg-slate-700/50 rounded-b-lg" href="#">Посмотреть все</a>
+      <div class="flex items-center space-x-2 sm:space-x-4">
+        <div class="header-element" style="animation-delay: 0.6s;">
+          <div class="dropdown">
+            <button class="relative p-2 text-gray-400 hover:text-white transition-transform duration-300 hover:scale-110">
+              <span class="material-icons-outlined">notifications</span>
+              <span class="absolute top-1 right-1 h-2 w-2 rounded-full bg-pink-500 animate-pulse"></span>
+            </button>
+            <div class="dropdown-content mt-3">
+              <div class="px-4 py-2 font-semibold text-white text-sm">Уведомления</div>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">
+                <span class="material-icons-outlined text-green-400 mr-3">campaign</span>
+                <div>
+                  <p class="font-medium">Запущена новая кампания</p>
+                  <p class="text-xs text-gray-400">"Летние вибрации" теперь активна.</p>
+                </div>
+              </a>
+              <a class="dropdown-item" href="#">
+                <span class="material-icons-outlined text-teal-400 mr-3">person_add</span>
+                <div>
+                  <p class="font-medium">Новая заявка от автора</p>
+                  <p class="text-xs text-gray-400">@StyleByJane подал(а) заявку.</p>
+                </div>
+              </a>
+              <a class="dropdown-item" href="#">
+                <span class="material-icons-outlined text-yellow-400 mr-3">warning</span>
+                <div>
+                  <p class="font-medium">Скоро оплата</p>
+                  <p class="text-xs text-gray-400">Счет #12345 должен быть оплачен завтра.</p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="block text-center py-2 text-sm text-[var(--primary-purple)] hover:bg-slate-700/50 rounded-b-lg" href="#">Посмотреть все уведомления</a>
+            </div>
           </div>
         </div>
-
-        <div class="dropdown">
-          <button class="flex items-center space-x-2 group">
-            <img alt="Логотип бренда" class="w-8 h-8 rounded-full transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo0soxoFA3M1vjtzp65hiqVj1b5gMNPZlg7_OC-lfkfn2nbs0OqmPLhubLJ8ui9fKlxoyBO3cltZkOP-lyYXk6kY_ggdt2PF_IYCeKFYHWA0MKhQlSFOm_MDrG-S53HdP8SKxImoIpeEhCGVHHoV5oRuH4g1vbmixJtTSOw0RokGaROAfHClM8Me8iog0L8KqH9kFr-lvPXnPBhUIagkDQ6bBx16kzKnoeoZP9VPwM_vSVcTnI9zDNj_OmU0ynHz3aVJ5zt6vH3k9v"/>
-            <span class="text-white font-medium text-sm hidden sm:inline">Momentum Athletics</span>
-            <span class="material-icons-outlined text-gray-400 hidden sm:inline transition-transform duration-300 group-hover:rotate-180">expand_more</span>
-          </button>
-          <div class="dropdown-content mt-3">
-            <a class="dropdown-item" href="#">
-              <span class="material-icons-outlined mr-3">account_circle</span>
-              Профиль
-            </a>
-            <a class="dropdown-item" href="#">
-              <span class="material-icons-outlined mr-3">settings</span>
-              Настройки
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item text-red-400 hover:text-red-300" href="#">
-              <span class="material-icons-outlined mr-3">logout</span>
-              Выйти
-            </a>
+        <div class="header-element" style="animation-delay: 0.7s;">
+          <div class="dropdown">
+            <button class="flex items-center space-x-2 group">
+              <img alt="Логотип бренда" class="w-8 h-8 rounded-full transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg" src="https://i.pravatar.cc/40?u=MomentumAthletics"/>
+              <span class="text-white font-medium text-sm hidden sm:inline">Momentum Athletics</span>
+              <span class="material-icons-outlined text-gray-400 hidden sm:inline transition-transform duration-300 group-hover:rotate-180">expand_more</span>
+            </button>
+            <div class="dropdown-content mt-3">
+              <a class="dropdown-item" href="#">
+                <span class="material-icons-outlined mr-3">account_circle</span>
+                Просмотр профиля
+              </a>
+              <a class="dropdown-item" href="#">
+                <span class="material-icons-outlined mr-3">settings</span>
+                Настройки
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item text-red-400 hover:text-red-300" href="#">
+                <span class="material-icons-outlined mr-3">logout</span>
+                Выйти
+              </a>
+            </div>
           </div>
         </div>
-
-        <div class="md:hidden">
-          <button id="mobile-menu-button" class="p-2 text-gray-300 hover:text-white">
+        <div class="md:hidden header-element" style="animation-delay: 0.8s;">
+          <button id="mobile-menu-button" class="p-2 text-gray-400 hover:text-white">
             <span class="material-icons-outlined">menu</span>
           </button>
         </div>
       </div>
-
-      <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-sm mt-2 rounded-b-lg shadow-xl">
-        <a class="block py-3 px-5 text-gray-300 hover:text-white hover:bg-[var(--primary-purple)] transition-colors" href="#">Панель управления</a>
-        <a class="block py-3 px-5 text-gray-300 hover:text-white hover:bg-[var(--primary-purple)] transition-colors" href="#">Кампании</a>
-        <a class="block py-3 px-5 text-white font-semibold bg-slate-700/50" href="#">Продукты</a>
-        <a class="block py-3 px-5 text-gray-300 hover:text-white hover:bg-[var(--primary-purple)] transition-colors" href="#">Авторы</a>
-      </div>
     </nav>
+    <div id="mobile-menu" class="hidden md:hidden mt-4">
+      <a href="#" class="block py-2 px-4 text-sm text-gray-300 hover:bg-slate-700/50 rounded">Панель управления</a>
+      <a href="#" class="block py-2 px-4 text-sm text-gray-300 hover:bg-slate-700/50 rounded">Кампании</a>
+      <a href="#" class="block py-2 px-4 text-sm text-white font-semibold bg-slate-700/50 rounded">Товары</a>
+      <a href="#" class="block py-2 px-4 text-sm text-gray-300 hover:bg-slate-700/50 rounded">Авторы</a>
+    </div>
   </header>
 
   <main class="flex-grow py-12 sm:py-16">
@@ -199,25 +204,25 @@
       <div class="mb-8 animate-fade-in-up" style="animation-delay: 0.2s;">
         <a class="inline-flex items-center text-gray-400 hover:text-white transition-colors" href="#">
           <span class="material-icons-outlined mr-2">arrow_back</span>
-          Назад к продуктам
+          Назад к товарам
         </a>
-        <h1 class="text-3xl font-extrabold text-white mt-4">Добавить новый продукт</h1>
-        <p class="text-gray-400 mt-2">Укажите детали ниже, чтобы добавить новый продукт для кампаний с авторами.</p>
+        <h1 class="text-3xl font-extrabold text-white mt-4">Добавить новый товар</h1>
+        <p class="text-gray-400 mt-2">Укажите детали ниже, чтобы добавить новый товар для кампаний с авторами.</p>
       </div>
       <div class="bg-[var(--card-bg)] p-6 sm:p-8 rounded-2xl shadow-lg border border-slate-700/50 animate-fade-in-up" style="animation-delay: 0.4s;">
         <form class="space-y-6">
           <div>
-            <label class="form-label" for="product-name">Название продукта</label>
-            <input class="form-input" id="product-name" name="product-name" placeholder="например, кроссовки AeroBoost X1" type="text"/>
-            <p class="form-help-text">Так ваш продукт будет отображаться для авторов.</p>
+            <label class="form-label" for="product-name">Название товара</label>
+            <input class="form-input" id="product-name" name="product-name" placeholder="например, Кроссовки AeroBoost X1" type="text"/>
+            <p class="form-help-text">Так ваш товар будет отображаться для авторов.</p>
           </div>
           <div>
-            <label class="form-label" for="product-description">Описание продукта</label>
-            <textarea class="form-input" id="product-description" name="product-description" placeholder="Опишите ключевые особенности и преимущества вашего продукта..." rows="4"></textarea>
+            <label class="form-label" for="product-description">Описание товара</label>
+            <textarea class="form-input" id="product-description" name="product-description" placeholder="Опишите ключевые особенности и преимущества вашего товара..." rows="4"></textarea>
             <p class="form-help-text">Предоставьте убедительное описание, которое привлечет авторов. Поддерживается Markdown.</p>
           </div>
           <div>
-            <label class="form-label" for="product-category">Категория</label>
+            <label class="form-label" for="product-category">Категория товара</label>
             <select class="form-input" id="product-category" name="product-category">
               <option>Выберите категорию</option>
               <option>Электроника</option>
@@ -227,10 +232,25 @@
               <option>Спорт и отдых</option>
               <option>Еда и напитки</option>
             </select>
-            <p class="form-help-text">Правильный выбор категории поможет нам подобрать релевантных авторов.</p>
+            <p class="form-help-text">Правильный выбор категории поможет нам подобрать релевантных авторов для вашего товара.</p>
           </div>
           <div>
-            <label class="form-label">Изображение продукта</label>
+            <label class="form-label">Желаемые категории видеоконтента</label>
+            <div class="mt-2 grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-4">
+              <label class="checkbox-label"><input class="checkbox-input" name="video-category[]" type="checkbox" value="asmr"/><span class="text-gray-300">АСМР</span></label>
+              <label class="checkbox-label"><input class="checkbox-input" name="video-category[]" type="checkbox" value="mukbang"/><span class="text-gray-300">Мукбанг</span></label>
+              <label class="checkbox-label"><input class="checkbox-input" name="video-category[]" type="checkbox" value="review"/><span class="text-gray-300">Обзоры</span></label>
+              <label class="checkbox-label"><input class="checkbox-input" name="video-category[]" type="checkbox" value="tutorial"/><span class="text-gray-300">Обучающие</span></label>
+              <label class="checkbox-label"><input class="checkbox-input" name="video-category[]" type="checkbox" value="unboxing"/><span class="text-gray-300">Распаковка</span></label>
+              <label class="checkbox-label"><input class="checkbox-input" name="video-category[]" type="checkbox" value="comedy-skit"/><span class="text-gray-300">Комедия / Скетч</span></label>
+              <label class="checkbox-label"><input class="checkbox-input" name="video-category[]" type="checkbox" value="vlog"/><span class="text-gray-300">Влог</span></label>
+              <label class="checkbox-label"><input class="checkbox-input" name="video-category[]" type="checkbox" value="diy"/><span class="text-gray-300">Сделай сам</span></label>
+              <label class="checkbox-label"><input class="checkbox-input" name="video-category[]" type="checkbox" value="lifestyle"/><span class="text-gray-300">Лайфстайл</span></label>
+            </div>
+            <p class="form-help-text">Выберите все стили видео, которые вы хотите, чтобы авторы использовали для вашего товара.</p>
+          </div>
+          <div>
+            <label class="form-label">Изображение товара</label>
             <div class="mt-2 flex justify-center rounded-lg border-2 border-dashed border-slate-600 px-6 py-10 hover:border-purple-500 transition-colors">
               <div class="text-center">
                 <span class="material-icons-outlined text-5xl text-gray-500">image</span>
@@ -246,13 +266,13 @@
             </div>
             <p class="form-help-text">Качественное изображение крайне важно для привлечения авторов. Рекомендуемый размер: 1080x1080px.</p>
           </div>
-          <div class="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4 pt-6">
-            <button class="text-gray-300 hover:bg-slate-700/50 font-medium transition-colors py-2 px-4 rounded-lg order-2 sm:order-1" type="button">
+          <div class="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-4 pt-6 space-y-4 space-y-reverse sm:space-y-0">
+            <button class="w-full sm:w-auto text-gray-300 hover:bg-slate-700/50 font-medium transition-colors py-2 px-4 rounded-lg" type="button">
               Отмена
             </button>
-            <button class="bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-semibold py-2 px-6 rounded-lg transition duration-200 ease-in-out transform hover:scale-105 btn-glow flex items-center justify-center space-x-2 order-1 sm:order-2" type="submit">
+            <button class="w-full sm:w-auto bg-[var(--primary-purple)] hover:bg-purple-500 text-white font-semibold py-2 px-6 rounded-lg transition duration-200 ease-in-out transform hover:scale-105 btn-glow flex items-center justify-center space-x-2" type="submit">
               <span class="material-icons-outlined text-sm">add_circle_outline</span>
-              <span>Добавить продукт</span>
+              <span>Добавить товар</span>
             </button>
           </div>
         </form>
@@ -262,33 +282,17 @@
   <footer class="bg-slate-900/80 py-8 px-4 sm:px-6 lg:px-8 border-t border-slate-700/50 mt-auto">
     <div class="container mx-auto max-w-7xl">
       <div class="text-center text-gray-500 text-sm">
-        © <script>
-        document.write(new Date().getFullYear())
-      </script> QazCreators. Все права защищены.
+        © <script>document.write(new Date().getFullYear())</script> QazCreators. Все права защищены.
       </div>
     </div>
   </footer>
 </div>
-
 <script>
-  // Скрипт для управления мобильным меню
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
-
   mobileMenuButton.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
   });
-
-  // Закрыть меню при клике вне его области
-  document.addEventListener('click', (event) => {
-    const isClickInsideMenu = mobileMenu.contains(event.target);
-    const isClickOnButton = mobileMenuButton.contains(event.target);
-
-    if (!isClickInsideMenu && !isClickOnButton) {
-      mobileMenu.classList.add('hidden');
-    }
-  });
 </script>
-
 </body>
 </html>
