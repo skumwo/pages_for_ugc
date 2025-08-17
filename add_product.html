@@ -5,6 +5,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>QazCreators - Добавить новый товар</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
   <style type="text/tailwindcss">
@@ -22,6 +23,10 @@
     }
     .btn-glow:hover {
       box-shadow: 0 0 20px 5px rgba(139, 92, 246, 0.5);
+    }
+    .card-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.23);
     }
     input[type="text"],
     input[type="file"],
@@ -250,21 +255,23 @@
             <p class="form-help-text">Выберите все стили видео, которые вы хотите, чтобы авторы использовали для вашего товара.</p>
           </div>
           <div>
-            <label class="form-label">Изображение товара</label>
-            <div class="mt-2 flex justify-center rounded-lg border-2 border-dashed border-slate-600 px-6 py-10 hover:border-purple-500 transition-colors">
+            <label class="form-label">Изображения и видео товара</label>
+            <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="media-preview-container">
+            </div>
+            <div class="mt-4 flex justify-center rounded-2xl border-2 border-dashed border-slate-600 px-6 py-10 hover:border-purple-500 transition-colors cursor-pointer" id="file-upload-area">
               <div class="text-center">
-                <span class="material-icons-outlined text-5xl text-gray-500">image</span>
+                <span class="material-icons-outlined text-5xl text-gray-500">add_to_photos</span>
                 <div class="mt-4 flex text-sm leading-6 text-gray-400">
                   <label class="relative cursor-pointer rounded-md font-semibold text-[var(--primary-purple)] hover:text-purple-400" for="file-upload">
-                    <span>Загрузите файл</span>
-                    <input class="sr-only" id="file-upload" name="file-upload" type="file"/>
+                    <span>Загрузить файлы</span>
+                    <input class="sr-only" id="file-upload" name="file-upload[]" type="file" multiple="" accept="image/*,video/*"/>
                   </label>
                   <p class="pl-1">или перетащите</p>
                 </div>
-                <p class="text-xs leading-5 text-gray-500">PNG, JPG, GIF до 10 МБ</p>
+                <p class="text-xs leading-5 text-gray-500">Поддерживаются PNG, JPG, GIF, MP4, MOV. До 10 МБ.</p>
               </div>
             </div>
-            <p class="form-help-text">Качественное изображение крайне важно для привлечения авторов. Рекомендуемый размер: 1080x1080px.</p>
+            <p class="form-help-text">Качественные изображения и видео — ключ к привлечению авторов. Загрузите несколько файлов, чтобы показать товар с разных сторон.</p>
           </div>
           <div class="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-4 pt-6 space-y-4 space-y-reverse sm:space-y-0">
             <button class="w-full sm:w-auto text-gray-300 hover:bg-slate-700/50 font-medium transition-colors py-2 px-4 rounded-lg" type="button">
@@ -293,6 +300,83 @@
   mobileMenuButton.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
   });
+
+  const fileInput = document.getElementById('file-upload');
+  const previewContainer = document.getElementById('media-preview-container');
+  const uploadArea = document.getElementById('file-upload-area');
+
+  // Инициализация Sortable.js для контейнера с превью
+  new Sortable(previewContainer, {
+    animation: 150, // Плавная анимация при перетаскивании
+    ghostClass: 'sortable-ghost', // Класс для элемента-заполнителя во время перетаскивания
+    // Добавьте сюда другие опции, если нужны
+  });
+
+  function createPreviewElement(file) {
+    // ... (остальной код функции без изменений)
+    const reader = new FileReader();
+    const isVideo = file.type.startsWith('video');
+
+    const previewWrapper = document.createElement('div');
+    previewWrapper.className = 'relative group overflow-hidden transition-all duration-300 ease-in-out card-lift bg-[var(--card-bg)] rounded-2xl shadow-lg border border-slate-700/50';
+
+    const fileContainer = document.createElement('div');
+    fileContainer.className = 'relative overflow-hidden w-full h-56';
+
+    const deleteButton = document.createElement('button');
+    deleteButton.innerHTML = '<span class="material-icons-outlined text-sm">delete</span>';
+    deleteButton.className = 'absolute top-4 right-4 p-2 bg-red-500/80 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10';
+    deleteButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      previewWrapper.remove();
+    });
+
+    const fileElement = document.createElement(isVideo ? 'video' : 'img');
+    fileElement.className = 'w-full h-full object-cover group-hover:scale-110 transition-transform duration-300';
+    fileElement.alt = file.name;
+    fileElement.src = URL.createObjectURL(file);
+    if (isVideo) {
+      fileElement.setAttribute('muted', true);
+      fileElement.setAttribute('loop', true);
+      fileElement.setAttribute('playsinline', true);
+      fileElement.play();
+    }
+
+    fileContainer.appendChild(fileElement);
+    previewWrapper.appendChild(fileContainer);
+    previewWrapper.appendChild(deleteButton);
+    previewContainer.appendChild(previewWrapper);
+  }
+
+  // Обработка выбора файлов через кнопку
+  fileInput.addEventListener('change', (event) => {
+    Array.from(event.target.files).forEach(file => {
+      createPreviewElement(file);
+    });
+  });
+
+  // Обработка Drag & Drop
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    uploadArea.addEventListener(eventName, preventDefaults, false);
+  });
+
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  uploadArea.addEventListener('dragenter', () => uploadArea.classList.add('border-purple-500'), false);
+  uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('border-purple-500'), false);
+  uploadArea.addEventListener('drop', handleDrop, false);
+
+  function handleDrop(e) {
+    uploadArea.classList.remove('border-purple-500');
+    const dt = e.dataTransfer;
+    const files = dt.files;
+    Array.from(files).forEach(file => {
+      createPreviewElement(file);
+    });
+  }
 </script>
 </body>
 </html>
